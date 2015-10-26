@@ -40,7 +40,13 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 		$this->casper($make, $reg, $vehicle->id);
 
 		// Return Results
-		return $lookup = $this->getLookup($reg);
+		$lookup = $this->getLookup($reg);
+
+		if ($lookup) {
+			return $lookup;
+		} else {
+			return false;
+		}
 	}
 
 	/*
@@ -79,8 +85,13 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 							->where('user_id', Auth::user()->id)
 							->first();
 
-		// Get newest instance of the lookup from DB with matching reg and make
-		return $this->model->where('vehicle_id', $vehicle->id)->orderby('created_at')->first();
+		$lookup = $this->model->where('vehicle_id', $vehicle->id)->orderby('created_at')->first();
+
+		if($lookup) {
+			$lookup = $this->checkDates($lookup);
+		}
+
+		return $lookup;
 	}
 
 	/*
@@ -93,20 +104,55 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 	 *
 	 * @return
 	 */
-	public function postLookup($mot, $tax, $details, $vehicleId)
+	public function postLookup($tax, $mot, $details, $vehicleId)
 	{
-		// Convert string dates to carbon
-		$motDue = new carbon($mot);
-		$taxDue = new carbon($tax);
-
 		// Post data to db
 		$vehicleCheck = new $this->model;
-		$vehicleCheck->mot_due = $motDue;
-		$vehicleCheck->tax_due = $taxDue;
 		$vehicleCheck->vehicle_details = $details;
 		$vehicleCheck->vehicle_id = $vehicleId;
+
+		// Handle exceptions - WIP
+			// Do we have an MOT record
+//			if($mot === "Not yet MOT'd") {
+//				$vehicleCheck->no_mot_record = 1;
+//			} else {
+//
+//			}
+//
+//			// Is the car SORN
+//			if($tax === "SORN") {
+//				$vehicleCheck->sorn = 1;
+//			} else {
+//
+//			}
+
+		$vehicleCheck->tax_due = new carbon($tax);
+		$vehicleCheck->mot_due = new carbon($mot);
+
 		$vehicleCheck->save();
 
 		return;
+	}
+
+	/*
+	 * Check if the mot or tax are expired
+	 *
+	 * @param VehicleLookup $lookup
+	 * @return Elequent
+	 */
+	public function checkDates(VehicleLookup $lookup)
+	{
+
+		if($lookup->mot_due->isPast()) {
+			$lookup->mot_expired = true;
+		} else {
+			$lookup->mot_expired = false;
+		}
+
+		if($lookup->tax_due->isPast()) {
+			$lookup->tax_expired = true;
+		}
+
+		return $lookup;
 	}
 }

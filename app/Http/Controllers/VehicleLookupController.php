@@ -51,10 +51,17 @@ class VehicleLookupController extends Controller {
 		// Set the user to 0 if not logged in (for api)
 		(Auth::user())? $userId = Auth::user()->id : $userId = 0;
 
-		// Lookup details
-		$lookup = $this->repository->newLookup($userId, Input::get('reg'), Input::get('make'));
+		$reg = str_replace(' ', '', Input::get('reg'));
 
-		return view::make($this->viewPath . 'partials.newLookup')->with('lookup', $lookup);
+		// Lookup details
+		$lookup = $this->repository->newLookup($userId, $reg, Input::get('make'));
+
+		if($lookup) {
+			return view::make($this->viewPath . 'partials.newLookup')->with('lookup', $lookup);
+		} else {
+			return '';
+		}
+
 	}
 
 	/*
@@ -66,6 +73,10 @@ class VehicleLookupController extends Controller {
 	public function getVehicleDetails($id)
 	{
 		$lookup = $this->model->findorFail($id);
+
+		if($lookup) {
+			$lookup = $this->repository->checkDates($lookup);
+		}
 
 		return view::make($this->viewPath . 'partials.newLookup')->with('lookup', $lookup);
 	}

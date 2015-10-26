@@ -33,33 +33,60 @@ casper.start('https://www.vehicleenquiry.service.gov.uk/', function() {
 
 // Process results
 casper.then(function() {
+    var mot;
+    var tax;
+    var postResults = true;
 
-    // Get data from form
-    var mot = this.getHTML('.isValidMot p');
-    var tax = this.getHTML('.isValidTax p');
+    // Check the mot
+    if (this.exists('.isValidMot p')) {
+        mot = this.getHTML('.isValidMot p');
+
+        // Has MOT been done (New cars)
+        mot = mot.trim();
+        if(mot === "No details held by DVLA") {
+            this.echo('This car hasn\'t been MOT\'d yet');
+            postResults = false;
+        } else {
+            mot = mot.substring(mot.lastIndexOf(":")+2);
+        }
+    } else if (this.exists('.isInvalidMot p')) {
+        mot = this.getHTML('.isInvalidMot p');
+        mot = mot.substring(mot.lastIndexOf(":")+2);
+    }
+
+    // Check the tax
+    if (this.exists('.isValidTax p')) {
+        tax = this.getHTML('.isValidTax p');
+
+        // Is the car SORN
+        if(tax == "&nbsp;") {
+            this.echo('This car has been declared SORN');
+            postResults = false;
+
+        } else {
+            tax = tax.substring(tax.lastIndexOf(":")+2);
+        }
+    }else if (this.exists('.isInvalidTax p')) {
+        tax = this.getHTML('.isInvalidTax p');
+        tax = tax.substring(tax.lastIndexOf(":")+2);
+    }
+
     var details = this.getHTML('.ul-data');
-
-    // Remove wanted text from strings
-    mot = mot.substring(mot.lastIndexOf(":")+2);
-    tax = tax.substring(tax.lastIndexOf(":")+2);
 
     // Trim the empty spaces from the details string
     details = details.trim(details);
 
-    // Debugging
-    //this.echo(mot);
-    //this.echo(tax);
-    //this.echo(details);
-
-    casper.open(apiUrl, {
-        method: 'POST',
-        data: {
-            'mot': mot,
-            'tax': tax,
-            'details': details,
-            'vehicleId' : vehicleId
-        }
-    });
+    if(postResults) {
+        casper.open(apiUrl, {
+            method: 'POST',
+            data: {
+                'mot': mot,
+                'tax': tax,
+                'details': details,
+                'vehicleId' : vehicleId
+            }
+        });
+    }
 });
 
 

@@ -75,9 +75,11 @@
 						</thead>
 						<tbody>
 							@foreach($vehicles as $vehicle)
+								@if(isset( $vehicle->latest_lookup) && count($vehicle->latest_lookup) > 0 )
 								<tr id="{!! $vehicle->latest_lookup->first()->id !!}">
 									@include('partials.vehicleTable')
 								</tr>
+								@endif
 							@endforeach
 						</tbody>
 					</table>
