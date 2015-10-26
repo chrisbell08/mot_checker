@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="splash-feature-text">
-                        It's super simple to check when your MOT or Tax due to expire.
+                        It's super simple to check when your MOT / Tax and other vehicle details
                     </div>
                 </div>
 
@@ -116,7 +116,7 @@
                     </div>
 
                     <div class="splash-feature-text">
-                        Get text messages reminders when your MOT is due to expire
+                        Get text reminders when your MOT or Tax are due to expire
                     </div>
                 </div>
 
