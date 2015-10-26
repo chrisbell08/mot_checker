@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="splash-feature-heading">
-                        Check when your MOT is due
+                        When is your MOT is due?
                     </div>
 
                     <div class="splash-feature-text">
@@ -349,7 +349,7 @@
 
                 <div class="col-md-4 splash-customer">
                     <div class="splash-customer-avatar">
-                        <img src="/img/anna.jpg">
+                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/richcsmith/128.jpg">
                     </div>
 
                     <div class="splash-customer-quote">
@@ -357,7 +357,7 @@
                     </div>
 
                     <div class="splash-customer-identity">
-                        <div class="splash-customer-name">Anna Drake</div>
+                        <div class="splash-customer-name">John Smith</div>
                         <div class="splash-customer-title">Derbyshire</div>
                     </div>
                 </div>
