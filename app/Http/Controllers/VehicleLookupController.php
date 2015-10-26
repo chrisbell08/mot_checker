@@ -89,6 +89,8 @@ class VehicleLookupController extends Controller {
 
 		$vehicle = $this->vehicleRepository->getVehicleById($vehicle->id);
 
+		$vehicle->icon = $this->vehicleRepository->getIcon($vehicle);
+
 		return view::make('partials.vehicleTable')->with('vehicle', $vehicle);
 	}
 }

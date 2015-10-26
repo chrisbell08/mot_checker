@@ -91,8 +91,6 @@ $($modal).on('show.bs.modal', function (event) {
 $('.js-vehicle-lookup-refresh').click(function(e){
     e.preventDefault();
 
-    console.log('test');
-
     var anchor = $(this);
     var id = anchor.data('id');
     var url = 'lookup/refreshLookup/' + id;
@@ -104,5 +102,7 @@ $('.js-vehicle-lookup-refresh').click(function(e){
     $.get(url, function(data){
         $(row).html(data);
         $(anchor).children('i').toggleClass('fa-spin');
+
+        // TODO Bind the click event back to the link when it's injected into DOM
     });
 });
