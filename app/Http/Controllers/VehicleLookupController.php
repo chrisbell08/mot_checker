@@ -48,7 +48,7 @@ class VehicleLookupController extends Controller {
 	 */
 	public function postNewLookup()
 	{
-		// Set the user to 0 if not logged in, this will create a new user
+		// Set the user to 0 if not logged in (for api)
 		(Auth::user())? $userId = Auth::user()->id : $userId = 0;
 
 		// Lookup details

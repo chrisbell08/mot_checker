@@ -24,8 +24,11 @@ class VehicleRepository extends Repository implements VehicleInterface {
      */
 	public function getOrCreateVehicle($reg, $make, $userId)
 	{
-		// Check to see if vehicle exists
-		$vehicle = $this->model->where('reg', $reg)->first();
+		// Check to see if vehicle exists to the user
+		$vehicle = $this->model
+							->where('reg', $reg)
+							->where('user_id', $userId)
+							->first();
 
 		if(count($vehicle) > 0) {
 			return $vehicle;

@@ -4,6 +4,7 @@ use App\Http\Interfaces\VehicleLookupInterface;
 use App\Http\Models\Vehicle;
 use App\Http\Models\VehicleLookup;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class VehicleLookupRepository extends Repository implements VehicleLookupInterface {
 
@@ -74,7 +75,9 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 	public function getLookup($reg)
 	{
 		// Get the vehicle
-		$vehicle = Vehicle::where('reg', $reg)->first();
+		$vehicle = Vehicle::where('reg', $reg)
+							->where('user_id', Auth::user()->id)
+							->first();
 
 		// Get newest instance of the lookup from DB with matching reg and make
 		return $this->model->where('vehicle_id', $vehicle->id)->orderby('created_at')->first();
