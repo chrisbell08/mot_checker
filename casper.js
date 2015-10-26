@@ -18,8 +18,6 @@ casper.start('https://www.vehicleenquiry.service.gov.uk/', function() {
     var reg = casper.cli.args[0];
     var make = casper.cli.args[1];
     vehicleId = casper.cli.args[2];
-    //var reg = "RF11HHE";
-    //var make = 'CITROEN';
 
     var formData = {
         "ctl00$MainContent$txtSearchVrm": reg,
