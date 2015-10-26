@@ -1,0 +1,32 @@
+/*************************************************************************
+**
+** base.scss
+**
+** Any global variables used in the site in addition to the Front-End
+** framework variables.
+**
+**************************************************************************/
+
+
+body {
+}
+
+a {
+
+  /* Misc */
+  transition: all 0.2s ease-in;
+}
+
+p:last-of-type {
+
+  /* Box Model */
+  margin-bottom: 0px;
+}
+
+ul {
+
+  /* Box Model */
+  margin-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+}

@@ -1,0 +1,9 @@
+.vehicle-table {
+
+  /* Elements */
+  @include element(icon) {
+
+    /* Box Model */
+    max-height: 20px;
+  }
+}

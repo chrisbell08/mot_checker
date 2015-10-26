@@ -1,0 +1,96 @@
+%stack-elements {
+  /* Dependencies */
+  @extend .animated;
+
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* Box Model */
+  width: 100%;
+}
+
+.lookup-form {
+
+  /* Elements */
+  @include element(wrapper) {
+    /* Positioning */
+    position: relative;
+
+    /* Box Model */
+    min-height: 200px;
+    overflow: hidden;
+
+    /* Misc */
+    transition: 0.2s linear all;
+
+    /* Modifier */
+    @include modifier(results) {
+
+      /* Box Model */
+      min-height: 850px;
+    }
+  }
+
+  @include element(form) {
+    /* Dependencies */
+    @extend %stack-elements;
+
+    /* Positioning */
+    z-index: 30;
+  }
+
+  @include element(results) {
+    /* Dependencies */
+    @extend %stack-elements;
+
+    /* Positioning */
+    z-index: 20;
+
+    /* Elements */
+    @include element(headings) {
+
+    }
+
+    @include element(details) {
+
+      /* Nesting */
+      li {
+        @extend .list-group-item;
+        /* Nesting */
+        span {
+
+          /* Dependencies */
+          @extend .list-group-item-heading;
+
+          /* Box Model */
+          display: block;
+
+          /* Typography */
+          font-weight: 400;
+        }
+
+        strong {
+
+          /* Dependencies */
+          @extend .list-group-item-text;
+
+          /* Box Model */
+          display: block;
+
+          /* Typography */
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  @include element(loader) {
+    /* Dependencies */
+    @extend %stack-elements;
+
+    /* Positioning */
+    z-index: 10;
+  }
+}
