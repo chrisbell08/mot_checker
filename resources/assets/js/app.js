@@ -28,16 +28,14 @@ if ($('#spark-app').length > 0) {
  |--------------------------------------------------------------------------
  |
  */
+// Globals need for the form reset function
+var $lookupFormForm = $('#lookup-form-form');
+var $lookFormLoader = $('#lookup-form-loader');
+var $lookupFormResults = $('#lookup-form-results');
+var $formWrapper = $('#lookup-form-wrapper');
 
  $('#postNewLookup').submit(function(e){
       e.preventDefault()
-
-     // Vars
-     var $lookupFormForm = $('#lookup-form-form');
-     var $lookFormLoader = $('#lookup-form-loader');
-     var $lookupFormResults = $('#lookup-form-results');
-     var $formWrapper = $('#lookup-form-wrapper');
-
 
      // Zoom out the form and zoom in the loader
      $($lookupFormForm).addClass('zoomOut');
@@ -55,10 +53,6 @@ if ($('#spark-app').length > 0) {
           // Zoom out loader and in results
           $($lookFormLoader).toggleClass('zoomIn zoomOut');
           $($lookupFormResults).toggleClass('zoomIn opaque');
-
-          // Remove unwanted elements from DOM
-          $($lookupFormForm).addClass('hidden');
-          $($lookFormLoader).addClass('hidden');
       })
  });
 
@@ -106,3 +100,25 @@ $('.js-vehicle-lookup-refresh').click(function(e){
         // TODO Bind the click event back to the link when it's injected into DOM
     });
 });
+
+
+/*
+ |--------------------------------------------------------------------------
+ | Reset the Vehicle lookup form when the modal is closed
+ |--------------------------------------------------------------------------
+ |
+ */
+$('#lookup-modal').on('hidden.bs.modal', function (e) {
+
+    // Reset the loader
+    $($lookFormLoader).toggleClass('opaque zoomOut');
+
+    // Reset the lookup form
+    $($lookupFormForm).toggleClass('zoomOut');
+
+    // Reset results
+    $($lookupFormResults).html("").toggleClass('opaque');
+
+    // Reset Modal
+    $($formWrapper).removeClass('lookup-form__wrapper--results');
+})

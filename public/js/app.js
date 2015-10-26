@@ -29280,15 +29280,14 @@ if ($('#spark-app').length > 0) {
  |--------------------------------------------------------------------------
  |
  */
+// Globals need for the form reset function
+var $lookupFormForm = $('#lookup-form-form');
+var $lookFormLoader = $('#lookup-form-loader');
+var $lookupFormResults = $('#lookup-form-results');
+var $formWrapper = $('#lookup-form-wrapper');
 
 $('#postNewLookup').submit(function (e) {
   e.preventDefault();
-
-  // Vars
-  var $lookupFormForm = $('#lookup-form-form');
-  var $lookFormLoader = $('#lookup-form-loader');
-  var $lookupFormResults = $('#lookup-form-results');
-  var $formWrapper = $('#lookup-form-wrapper');
 
   // Zoom out the form and zoom in the loader
   $($lookupFormForm).addClass('zoomOut');
@@ -29306,10 +29305,6 @@ $('#postNewLookup').submit(function (e) {
     // Zoom out loader and in results
     $($lookFormLoader).toggleClass('zoomIn zoomOut');
     $($lookupFormResults).toggleClass('zoomIn opaque');
-
-    // Remove unwanted elements from DOM
-    $($lookupFormForm).addClass('hidden');
-    $($lookFormLoader).addClass('hidden');
   });
 });
 
@@ -29340,8 +29335,6 @@ $($modal).on('show.bs.modal', function (event) {
 $('.js-vehicle-lookup-refresh').click(function (e) {
   e.preventDefault();
 
-  console.log('test');
-
   var anchor = $(this);
   var id = anchor.data('id');
   var url = 'lookup/refreshLookup/' + id;
@@ -29353,7 +29346,30 @@ $('.js-vehicle-lookup-refresh').click(function (e) {
   $.get(url, function (data) {
     $(row).html(data);
     $(anchor).children('i').toggleClass('fa-spin');
+
+    // TODO Bind the click event back to the link when it's injected into DOM
   });
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Reset the Vehicle lookup form when the modal is closed
+ |--------------------------------------------------------------------------
+ |
+ */
+$('#lookup-modal').on('hidden.bs.modal', function (e) {
+
+  // Reset the loader
+  $($lookFormLoader).toggleClass('opaque zoomOut');
+
+  // Reset the lookup form
+  $($lookupFormForm).toggleClass('zoomOut');
+
+  // Reset results
+  $($lookupFormResults).html("").toggleClass('opaque');
+
+  // Reset Modal
+  $($formWrapper).removeClass('lookup-form__wrapper--results');
 });
 
 },{"./spark/components":98,"laravel-spark":96,"laravel-spark/core/dependencies":7}],98:[function(require,module,exports){
