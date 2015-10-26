@@ -39,7 +39,7 @@ casper.then(function() {
     var tax = this.getHTML('.isValidTax p');
     var details = this.getHTML('.ul-data');
 
-    // Remove unwatched text from strings
+    // Remove wanted text from strings
     mot = mot.substring(mot.lastIndexOf(":")+2);
     tax = tax.substring(tax.lastIndexOf(":")+2);
 
