@@ -29359,17 +29359,20 @@ $('.js-vehicle-lookup-refresh').click(function (e) {
  */
 $('#lookup-modal').on('hidden.bs.modal', function (e) {
 
-  // Reset the loader
-  $($lookFormLoader).toggleClass('opaque zoomOut');
+  //// Reset the loader
+  //$($lookFormLoader).toggleClass('opaque zoomOut');
+  //
+  //// Reset the lookup form
+  //$($lookupFormForm).toggleClass('zoomOut');
+  //
+  //// Reset results
+  //$($lookupFormResults).html("").toggleClass('opaque');
+  //
+  //// Reset Modal
+  //$($formWrapper).removeClass('lookup-form__wrapper--results');
 
-  // Reset the lookup form
-  $($lookupFormForm).toggleClass('zoomOut');
-
-  // Reset results
-  $($lookupFormResults).html("").toggleClass('opaque');
-
-  // Reset Modal
-  $($formWrapper).removeClass('lookup-form__wrapper--results');
+  // Todo refresh the vechile table with ajax instead of just refreshing the page
+  location.reload();
 });
 
 },{"./spark/components":98,"laravel-spark":96,"laravel-spark/core/dependencies":7}],98:[function(require,module,exports){
