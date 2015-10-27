@@ -59,7 +59,7 @@ class VehicleLookupController extends Controller {
 		if($lookup) {
 			return view::make($this->viewPath . 'partials.newLookup')->with('lookup', $lookup);
 		} else {
-			return '';
+			return view::make($this->viewPath . 'partials.newLookup');
 		}
 
 	}

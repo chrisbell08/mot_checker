@@ -33,18 +33,22 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 	 */
 	public function newLookup($userId, $reg, $make )
 	{
-		// Get the Vehicle
+		// Look for vehicle with matching user id and reg, if false create new one.
 		$vehicle = $this->vehicleRepository->getOrCreateVehicle($reg, $make, $userId);
 
-		// Launch Casper
-		$this->casper($make, $reg, $vehicle->id);
+		// Create a new lookup row to post casper results into
+		$lookup = new $this->model;
+		$lookup->vehicle_id = $vehicle->id;
+		$lookup->mot_due = Carbon::createFromDate(1900, 01, 01);
+		$lookup->tax_due = Carbon::createFromDate(1900, 01, 01);
+		$lookup->save();
 
-		// Return Results
-		$lookup = $this->getLookup($reg);
-
-		if ($lookup) {
-			return $lookup;
-		} else {
+		if($this->casper($make, $reg, $lookup->id)) {
+			return $lookup = $this->getLookup($lookup->id);
+		}else {
+			// Delete the lookup to keep the db tidy
+			$lookup->delete();
+			// TODO how to delete failed lookup Vehicles.. Cron job or here?
 			return false;
 		}
 	}
@@ -58,48 +62,46 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 	 *
 	 * @return
 	 */
-	public function casper($make, $reg, $vehicleId)
+	public function casper($make, $reg, $lookupId)
 	{
-
 		// Customize the commands based on environment
 		if(getenv('APP_ENV') === 'local' ) {
 			putenv('PATH=' . getenv('PATH') . ':/usr/local/bin');
 			putenv("PHANTOMJS_EXECUTABLE=/usr/local/bin/phantomjs");
 			putenv("DYLD_LIBRARY_PATH");
-			$command = "casperjs ../casper.js " . $reg . " " . $make . " " . $vehicleId . " 2>&1";
-		} else {
+			$command = "casperjs ../casper.js " . $reg . " " . $make . " " . $lookupId . " 2>&1";
+		}else {
 			putenv("PHANTOMJS_EXECUTABLE=" . base_path() . "node_modules/phantomjs");
-			$command = "sudo casperjs ../casper.js " . $reg . " " . $make . " " . $vehicleId . " 2>&1";
+			$command = "sudo casperjs ../casper.js " . $reg . " " . $make . " " . $lookupId . " 2>&1";
 		}
 
-		// Run casperjs cli with args
-		echo shell_exec($command);
+		// Run casperjs
+		exec($command, $array);
 
-		return;
+		if(count($array) > 0 && $array[0] === 'failed') {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	/*
 	 * Get the lookup results from DB
 	 *
-	 * @param $make:string
-	 * @param $reg:string
+	 * @param $id:int
 	 *
 	 * @return
 	 */
-	public function getLookup($reg)
+	public function getLookup($id)
 	{
-		// Get the vehicle
-		$vehicle = Vehicle::where('reg', $reg)
-							->where('user_id', Auth::user()->id)
-							->first();
-
-		$lookup = $this->model->where('vehicle_id', $vehicle->id)->orderby('created_at')->first();
+		$lookup = $this->model->find($id);
 
 		if($lookup) {
 			$lookup = $this->checkDates($lookup);
+			return $lookup;
+		} else {
+			return false;
 		}
-
-		return $lookup;
 	}
 
 	/*
@@ -108,30 +110,21 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 	 * @param $mot:string
 	 * @param $tax:string
 	 * @param $details:string
-	 * @param $vehicleId:int
+	 * @param $lookupId:int
 	 *
 	 * @return
 	 */
-	public function postLookup($tax, $mot, $details, $vehicleId)
+	public function postLookup($tax, $mot, $details, $lookupId)
 	{
-		// Post data to db
-		$vehicleCheck = new $this->model;
+		$vehicleCheck = $this->model->find($lookupId);
 		$vehicleCheck->vehicle_details = $details;
-		$vehicleCheck->vehicle_id = $vehicleId;
 
-			// Do we have an MOT record
-			if($mot === "no-mot" || $details === 'failed') {
-				$vehicleCheck->mot_due = Carbon::createFromDate(1900, 01, 01);
-			} else {
-				$vehicleCheck->mot_due = new carbon($mot);
-			}
-
-			// Is the car SORN
-			if($tax === "sorn" || $details === 'failed') {
-				$vehicleCheck->tax_due = Carbon::createFromDate(1900, 01, 01);
-			} else {
-				$vehicleCheck->tax_due = new carbon($tax);
-			}
+		if($mot != "no-mot") {
+			$vehicleCheck->mot_due = new carbon($mot);
+		}
+		if($tax != 'sorn') {
+			$vehicleCheck->tax_due = new carbon($tax);
+		}
 
 		$vehicleCheck->save();
 

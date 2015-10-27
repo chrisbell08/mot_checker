@@ -47,8 +47,10 @@ var $formWrapper = $('#lookup-form-wrapper');
           // Inject the results into dom
           $($lookupFormResults).html(data);
 
-          // Make modal bigger to show results
-          $($formWrapper).addClass('lookup-form__wrapper--results');
+          // Make modal bigger to show results if no errors
+          if($($formWrapper).children('.alert-danger').length) {
+              $($formWrapper).addClass('lookup-form__wrapper--results');
+          }
 
           // Zoom out loader and in results
           $($lookFormLoader).toggleClass('zoomIn zoomOut');
@@ -110,15 +112,19 @@ $('.js-vehicle-lookup-refresh').click(function(e){
  */
 $('#lookup-modal').on('hidden.bs.modal', function (e) {
 
-    // Reset the loader
-    $($lookFormLoader).toggleClass('opaque zoomOut');
+    //// Reset the loader
+    //$($lookFormLoader).toggleClass('opaque zoomOut');
+    //
+    //// Reset the lookup form
+    //$($lookupFormForm).toggleClass('zoomOut');
+    //
+    //// Reset results
+    //$($lookupFormResults).html("").toggleClass('opaque');
+    //
+    //// Reset Modal
+    //$($formWrapper).removeClass('lookup-form__wrapper--results');
 
-    // Reset the lookup form
-    $($lookupFormForm).toggleClass('zoomOut');
+    // Todo refresh the vechile table with ajax instead of just refreshing the page
+    location.reload();
+});
 
-    // Reset results
-    $($lookupFormResults).html("").toggleClass('opaque');
-
-    // Reset Modal
-    $($formWrapper).removeClass('lookup-form__wrapper--results');
-})

@@ -8,7 +8,8 @@
 var homeUrl = 'http://ec2-52-17-183-118.eu-west-1.compute.amazonaws.com';
 //var homeUrl = 'http://motchecker:8888';
 var apiUrl = homeUrl + '/api/v1/casperPost';
-var vehicleId;
+var lookupId;
+var errors = false;
 
 // Create new instance of Casper
 var casper = require('casper').create();
@@ -19,7 +20,7 @@ casper.start('https://www.vehicleenquiry.service.gov.uk/', function() {
     // Get args from cli
     var reg = casper.cli.args[0];
     var make = casper.cli.args[1];
-    vehicleId = casper.cli.args[2];
+    lookupId = casper.cli.args[2];
 
     var formData = {
         "ctl00$MainContent$txtSearchVrm": reg,
@@ -53,6 +54,8 @@ casper.then(function() {
     } else if (this.exists('.isInvalidMot p')) {
         mot = this.getHTML('.isInvalidMot p');
         mot = mot.substring(mot.lastIndexOf(":")+2);
+    } else {
+        errors = true;
     }
 
     // Check the tax
@@ -69,28 +72,30 @@ casper.then(function() {
     }else if (this.exists('.isInvalidTax p')) {
         tax = this.getHTML('.isInvalidTax p');
         tax = tax.substring(tax.lastIndexOf(":")+2);
+    } else {
+        errors = true;
     }
 
     if (this.exists('.ul-data')) {
         details = this.getHTML('.ul-data');
+        details = details.trim(details);
     } else {
-        details = "failed";
+        errors = true;
     }
 
-
-    // Trim the empty spaces from the details string
-    details = details.trim(details);
-
+    if(!errors) {
         casper.open(apiUrl, {
             method: 'POST',
             data: {
                 'mot': mot,
                 'tax': tax,
                 'details': details,
-                'vehicleId' : vehicleId
+                'lookupId' : lookupId
             }
         });
+    } else {
+        this.echo('failed');
+    }
 });
-
 
 casper.run();
