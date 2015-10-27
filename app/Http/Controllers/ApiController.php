@@ -33,6 +33,7 @@ class ApiController extends BaseController
      * @param $_POST['mot']
      * @param $_POST['tax']
      * @param $_POST['details']
+     * @param $_POST['lookupId']
      *
      * @return
      */
@@ -41,9 +42,9 @@ class ApiController extends BaseController
         $mot = Input::get('mot');
         $tax = Input::get('tax');
         $details = Input::get('details');
-        $vehicleId = Input::get('vehicleId');
+        $lookupId = Input::get('lookupId');
 
-        $this->vehicleLookupRepository->postLookup($tax, $mot, $details, $vehicleId);
+        $this->vehicleLookupRepository->postLookup($tax, $mot, $details, $lookupId);
 
         return;
     }

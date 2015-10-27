@@ -1,4 +1,3 @@
-
 <td class="text-center">{!! $vehicle->icon !!}</td>
 <td>{!! $vehicle->make !!}</td>
 <td>{!! $vehicle->reg !!}</td>

@@ -29299,8 +29299,10 @@ $('#postNewLookup').submit(function (e) {
     // Inject the results into dom
     $($lookupFormResults).html(data);
 
-    // Make modal bigger to show results
-    $($formWrapper).addClass('lookup-form__wrapper--results');
+    // Make modal bigger to show results if no errors
+    if ($($formWrapper).children('.alert-danger').length) {
+      $($formWrapper).addClass('lookup-form__wrapper--results');
+    }
 
     // Zoom out loader and in results
     $($lookFormLoader).toggleClass('zoomIn zoomOut');
