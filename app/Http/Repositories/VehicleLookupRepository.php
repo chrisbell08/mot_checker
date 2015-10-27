@@ -60,9 +60,17 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 	 */
 	public function casper($make, $reg, $vehicleId)
 	{
-		// Set some stuff for the cli to run
-		putenv("PHANTOMJS_EXECUTABLE=" . base_path() . "node_modules/phantomjs");
-		$command = "sudo casperjs ../casper.js " . $reg . " " . $make . " " . $vehicleId . " 2>&1";
+
+		// Customize the commands based on environment
+		if(getenv('APP_ENV') === 'local' ) {
+			putenv('PATH=' . getenv('PATH') . ':/usr/local/bin');
+			putenv("PHANTOMJS_EXECUTABLE=/usr/local/bin/phantomjs");
+			putenv("DYLD_LIBRARY_PATH");
+			$command = "casperjs ../casper.js " . $reg . " " . $make . " " . $vehicleId . " 2>&1";
+		} else {
+			putenv("PHANTOMJS_EXECUTABLE=" . base_path() . "node_modules/phantomjs");
+			$command = "sudo casperjs ../casper.js " . $reg . " " . $make . " " . $vehicleId . " 2>&1";
+		}
 
 		// Run casperjs cli with args
 		echo shell_exec($command);
@@ -111,23 +119,19 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
 		$vehicleCheck->vehicle_details = $details;
 		$vehicleCheck->vehicle_id = $vehicleId;
 
-		// Handle exceptions - WIP
 			// Do we have an MOT record
-//			if($mot === "Not yet MOT'd") {
-//				$vehicleCheck->no_mot_record = 1;
-//			} else {
-//
-//			}
-//
-//			// Is the car SORN
-//			if($tax === "SORN") {
-//				$vehicleCheck->sorn = 1;
-//			} else {
-//
-//			}
+			if($mot === "no-mot" || $details === 'failed') {
+				$vehicleCheck->mot_due = Carbon::createFromDate(1900, 01, 01);
+			} else {
+				$vehicleCheck->mot_due = new carbon($mot);
+			}
 
-		$vehicleCheck->tax_due = new carbon($tax);
-		$vehicleCheck->mot_due = new carbon($mot);
+			// Is the car SORN
+			if($tax === "sorn" || $details === 'failed') {
+				$vehicleCheck->tax_due = Carbon::createFromDate(1900, 01, 01);
+			} else {
+				$vehicleCheck->tax_due = new carbon($tax);
+			}
 
 		$vehicleCheck->save();
 

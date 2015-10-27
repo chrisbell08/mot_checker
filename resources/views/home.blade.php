@@ -75,7 +75,7 @@
 						</thead>
 						<tbody>
 							@foreach($vehicles as $vehicle)
-								@if(isset( $vehicle->latest_lookup) && count($vehicle->latest_lookup) > 0 )
+								@if(isset( $vehicle->latest_lookup) && count($vehicle->latest_lookup) > 0 && $vehicle->latest_lookup->first()->vehicle_details != 'failed')
 								<tr id="{!! $vehicle->latest_lookup->first()->id !!}">
 									@include('partials.vehicleTable')
 								</tr>

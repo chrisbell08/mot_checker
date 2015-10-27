@@ -5,7 +5,9 @@
  * Runs the phantom.js headless server to crawl web pages
  */
 // Globals
-var apiUrl = 'http://ec2-52-17-183-118.eu-west-1.compute.amazonaws.com//api/v1/casperPost';
+var homeUrl = 'http://ec2-52-17-183-118.eu-west-1.compute.amazonaws.com';
+//var homeUrl = 'http://motchecker:8888';
+var apiUrl = homeUrl + '/api/v1/casperPost';
 var vehicleId;
 
 // Create new instance of Casper
@@ -35,7 +37,7 @@ casper.start('https://www.vehicleenquiry.service.gov.uk/', function() {
 casper.then(function() {
     var mot;
     var tax;
-    var postResults = true;
+    var details;
 
     // Check the mot
     if (this.exists('.isValidMot p')) {
@@ -44,8 +46,7 @@ casper.then(function() {
         // Has MOT been done (New cars)
         mot = mot.trim();
         if(mot === "No details held by DVLA") {
-            this.echo('This car hasn\'t been MOT\'d yet');
-            postResults = false;
+            mot = 'no-mot';
         } else {
             mot = mot.substring(mot.lastIndexOf(":")+2);
         }
@@ -60,8 +61,7 @@ casper.then(function() {
 
         // Is the car SORN
         if(tax == "&nbsp;") {
-            this.echo('This car has been declared SORN');
-            postResults = false;
+            tax = 'sorn';
 
         } else {
             tax = tax.substring(tax.lastIndexOf(":")+2);
@@ -71,12 +71,16 @@ casper.then(function() {
         tax = tax.substring(tax.lastIndexOf(":")+2);
     }
 
-    var details = this.getHTML('.ul-data');
+    if (this.exists('.ul-data')) {
+        details = this.getHTML('.ul-data');
+    } else {
+        details = "failed";
+    }
+
 
     // Trim the empty spaces from the details string
     details = details.trim(details);
 
-    if(postResults) {
         casper.open(apiUrl, {
             method: 'POST',
             data: {
@@ -86,7 +90,6 @@ casper.then(function() {
                 'vehicleId' : vehicleId
             }
         });
-    }
 });
 
 
