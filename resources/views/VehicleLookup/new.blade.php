@@ -4,10 +4,10 @@
         <div class="col-md-6 col-xs-12">
             {!!  Form::open(array('route' => 'lookup.postNewLookup', 'method' => 'POST', 'id' => 'postNewLookup')) !!}
             <div class="form-group">
-                {!!  Form::text('reg', null, ['class' => 'form-control', 'placeholder' => 'Your Registration'])  !!}
+                {!!  Form::text('reg', null, ['class' => 'form-control', 'placeholder' => 'Your Registration', 'required' => 'true'])  !!}
             </div>
             <div class="form-group">
-                {!!  Form::text('make', null, ['class' => 'form-control', 'placeholder' => 'Vehicle Make'])  !!}
+                {!!  Form::text('make', null, ['class' => 'form-control', 'placeholder' => 'Vehicle Make', 'required' => 'true'])  !!}
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success"><i class="fa fa-search"></i>&nbsp;Lookup Details</button>
