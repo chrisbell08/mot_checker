@@ -20,7 +20,7 @@
 
     /* Box Model */
     min-height: 200px;
-    overflow: hidden;
+    overflow: scroll;
 
     /* Misc */
     transition: 0.2s linear all;
@@ -39,6 +39,39 @@
 
     /* Positioning */
     z-index: 30;
+
+    /* Nesting */
+    input {
+
+      /* Typography */
+      color: white;
+      text-shadow: 0 1px 2px rgba(0,0,0,.6);
+      font-size: 19px;
+
+      /* Viusal */
+      background-color: rgba(0, 0, 0, 0.3);
+      border-top: 0;
+      border-right: 0;
+      border-left-color: black;
+      border-bottom-color: black;
+
+      /* Pseudo Classes */
+      &::-webkit-input-placeholder {
+        color: white;
+      }
+
+      &:-moz-placeholder { /* Firefox 18- */
+        color: white;
+      }
+
+      &::-moz-placeholder {  /* Firefox 19+ */
+        color: white;
+      }
+
+      &:-ms-input-placeholder {
+        color: white;
+      }
+    }
   }
 
   @include element(results) {
@@ -55,7 +88,22 @@
 
     @include element(details) {
 
+      /* Box Model */
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 15px;
+
+      /* Visual */
+      background-color: white;
+
       /* Nesting */
+      h4 {
+
+        /* Box Model */
+        padding-top: 15px;
+        padding-left: 15px;
+      }
+
       li {
         @extend .list-group-item;
         /* Nesting */
@@ -92,5 +140,31 @@
 
     /* Positioning */
     z-index: 10;
+
+    /* Elements */
+    @include element(content) {
+      /* Dependencies */
+      @extend .col-md-8;
+      @extend .col-md-offset-2;
+      @extend .col-xs-12;
+
+      /* Box Model */
+      @include spacing(padding, all);
+
+      /* Typoraphy */
+      text-align: center;
+
+      /* Visual */
+      background-color: white;
+      border-radius: 10px;
+
+      /* Nesting */
+      img {
+
+        /* Dependencies */
+        @extend .center-block;
+        @extend .img-responsive;
+      }
+    }
   }
 }

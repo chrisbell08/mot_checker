@@ -1,0 +1,41 @@
+ .modal {
+    &-dialog {
+      /* Background */
+      background-image: url('/img/modal-background.jpg');
+      background-size: cover;
+    }
+
+    &-content {
+
+      /* Visual */
+      background-color: transparent;
+    }
+
+    &-header {
+
+      /* Typography */
+      color: white;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0,0,0,.6);
+
+      /* Visual */
+      border: none;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &-footer {
+
+      /* Box Model */
+      padding-top: 0;
+
+      /* Visual */
+      border: none;
+    }
+
+    &-body {
+
+      /* Box Model */
+      padding-top: 50px;
+      padding-bottom: 0;
+    }
+  }

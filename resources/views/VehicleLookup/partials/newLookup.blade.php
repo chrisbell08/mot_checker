@@ -40,7 +40,7 @@
         </div>
 
         <div class="lookup-form__results__details">
-            <h5>Vehicle Information</h5>
+            <h4>Vehicle Information</h4>
             <ul class="no-bullet list-group">
                 {!! $lookup->vehicle_details !!}
             </ul>

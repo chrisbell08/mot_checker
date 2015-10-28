@@ -13,10 +13,10 @@
 .fa-btn {
   margin-right: 8px; }
 
-.spark-screen .btn {
+.spark-screen .btn, .spark-screen .btn__default, .spark-screen .btn__default--outline, .spark-screen .btn__primary, .spark-screen .btn__info, .spark-screen .btn__danger, .spark-screen .btn__success, .spark-screen .btn__link {
   transition: background-color 0.2s ease; }
 
-.spark-screen .btn-link {
+.spark-screen .btn-link, .spark-screen .btn__link {
   font-weight: 300; }
 
 .spark-screen label {
@@ -998,7 +998,7 @@ figure {
 img {
   vertical-align: middle; }
 
-.img-responsive {
+.img-responsive, .lookup-form__loader__content img {
   display: block;
   max-width: 100%;
   height: auto; }
@@ -1455,13 +1455,13 @@ pre {
   .row:after, .push-row:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .lookup-form__loader__content, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .lookup-form__loader__content, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .lookup-form__loader__content {
   float: left; }
 
 .col-xs-1 {
@@ -1497,7 +1497,7 @@ pre {
 .col-xs-11 {
   width: 91.6666666667%; }
 
-.col-xs-12 {
+.col-xs-12, .lookup-form__loader__content {
   width: 100%; }
 
 .col-xs-pull-0 {
@@ -1724,7 +1724,7 @@ pre {
     margin-left: 100%; } }
 
 @media (min-width: 992px) {
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .lookup-form__loader__content, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left; }
   .col-md-1 {
     width: 8.3333333333%; }
@@ -1740,7 +1740,7 @@ pre {
     width: 50%; }
   .col-md-7 {
     width: 58.3333333333%; }
-  .col-md-8 {
+  .col-md-8, .lookup-form__loader__content {
     width: 66.6666666667%; }
   .col-md-9 {
     width: 75%; }
@@ -1806,7 +1806,7 @@ pre {
     margin-left: 0%; }
   .col-md-offset-1 {
     margin-left: 8.3333333333%; }
-  .col-md-offset-2 {
+  .col-md-offset-2, .lookup-form__loader__content {
     margin-left: 16.6666666667%; }
   .col-md-offset-3 {
     margin-left: 25%; }
@@ -2267,42 +2267,98 @@ input[type="search"] {
   .input-group-sm > input[type="date"].form-control,
   .input-group-sm > input[type="date"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="date"].btn,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__default,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__default--outline,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__primary,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__info,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__danger,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__success,
+  .input-group-sm > .input-group-btn > input[type="date"].btn__link,
   .input-group-sm input[type="date"],
   input[type="time"].input-sm,
   .input-group-sm > input[type="time"].form-control,
   .input-group-sm > input[type="time"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="time"].btn,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__default,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__default--outline,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__primary,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__info,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__danger,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__success,
+  .input-group-sm > .input-group-btn > input[type="time"].btn__link,
   .input-group-sm input[type="time"],
   input[type="datetime-local"].input-sm,
   .input-group-sm > input[type="datetime-local"].form-control,
   .input-group-sm > input[type="datetime-local"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__default,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__default--outline,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__primary,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__info,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__danger,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__success,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"].btn__link,
   .input-group-sm input[type="datetime-local"],
   input[type="month"].input-sm,
   .input-group-sm > input[type="month"].form-control,
   .input-group-sm > input[type="month"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="month"].btn,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__default,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__default--outline,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__primary,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__info,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__danger,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__success,
+  .input-group-sm > .input-group-btn > input[type="month"].btn__link,
   .input-group-sm input[type="month"] {
     line-height: 30px; }
   input[type="date"].input-lg,
   .input-group-lg > input[type="date"].form-control,
   .input-group-lg > input[type="date"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="date"].btn,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__default,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__default--outline,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__primary,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__info,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__danger,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__success,
+  .input-group-lg > .input-group-btn > input[type="date"].btn__link,
   .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
   .input-group-lg > input[type="time"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="time"].btn,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__default,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__default--outline,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__primary,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__info,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__danger,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__success,
+  .input-group-lg > .input-group-btn > input[type="time"].btn__link,
   .input-group-lg input[type="time"],
   input[type="datetime-local"].input-lg,
   .input-group-lg > input[type="datetime-local"].form-control,
   .input-group-lg > input[type="datetime-local"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__default,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__default--outline,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__primary,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__info,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__danger,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__success,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"].btn__link,
   .input-group-lg input[type="datetime-local"],
   input[type="month"].input-lg,
   .input-group-lg > input[type="month"].form-control,
   .input-group-lg > input[type="month"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="month"].btn,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__default,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__default--outline,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__primary,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__info,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__danger,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__success,
+  .input-group-lg > .input-group-btn > input[type="month"].btn__link,
   .input-group-lg input[type="month"] {
     line-height: 46px; } }
 
@@ -2379,15 +2435,22 @@ fieldset[disabled] .checkbox label {
   .input-group-lg > .form-control-static.form-control,
   .input-group-lg > .form-control-static.input-group-addon,
   .input-group-lg > .input-group-btn > .form-control-static.btn,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__default,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__default--outline,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__primary,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__info,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__danger,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__success,
+  .input-group-lg > .input-group-btn > .form-control-static.btn__link,
   .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control,
   .input-group-sm > .form-control-static.input-group-addon,
-  .input-group-sm > .input-group-btn > .form-control-static.btn {
+  .input-group-sm > .input-group-btn > .form-control-static.btn, .input-group-sm > .input-group-btn > .form-control-static.btn__default, .input-group-sm > .input-group-btn > .form-control-static.btn__default--outline, .input-group-sm > .input-group-btn > .form-control-static.btn__primary, .input-group-sm > .input-group-btn > .form-control-static.btn__info, .input-group-sm > .input-group-btn > .form-control-static.btn__danger, .input-group-sm > .input-group-btn > .form-control-static.btn__success, .input-group-sm > .input-group-btn > .form-control-static.btn__link {
     padding-left: 0;
     padding-right: 0; }
 
 .input-sm, .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .btn {
+.input-group-sm > .input-group-btn > .btn, .input-group-sm > .input-group-btn > .btn__default, .input-group-sm > .input-group-btn > .btn__default--outline, .input-group-sm > .input-group-btn > .btn__primary, .input-group-sm > .input-group-btn > .btn__info, .input-group-sm > .input-group-btn > .btn__danger, .input-group-sm > .input-group-btn > .btn__success, .input-group-sm > .input-group-btn > .btn__link {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2396,7 +2459,7 @@ fieldset[disabled] .checkbox label {
 
 select.input-sm, .input-group-sm > select.form-control,
 .input-group-sm > select.input-group-addon,
-.input-group-sm > .input-group-btn > select.btn {
+.input-group-sm > .input-group-btn > select.btn, .input-group-sm > .input-group-btn > select.btn__default, .input-group-sm > .input-group-btn > select.btn__default--outline, .input-group-sm > .input-group-btn > select.btn__primary, .input-group-sm > .input-group-btn > select.btn__info, .input-group-sm > .input-group-btn > select.btn__danger, .input-group-sm > .input-group-btn > select.btn__success, .input-group-sm > .input-group-btn > select.btn__link {
   height: 30px;
   line-height: 30px; }
 
@@ -2404,9 +2467,16 @@ textarea.input-sm,
 .input-group-sm > textarea.form-control,
 .input-group-sm > textarea.input-group-addon,
 .input-group-sm > .input-group-btn > textarea.btn,
+.input-group-sm > .input-group-btn > textarea.btn__default,
+.input-group-sm > .input-group-btn > textarea.btn__default--outline,
+.input-group-sm > .input-group-btn > textarea.btn__primary,
+.input-group-sm > .input-group-btn > textarea.btn__info,
+.input-group-sm > .input-group-btn > textarea.btn__danger,
+.input-group-sm > .input-group-btn > textarea.btn__success,
+.input-group-sm > .input-group-btn > textarea.btn__link,
 select[multiple].input-sm, .input-group-sm > select[multiple].form-control,
 .input-group-sm > select[multiple].input-group-addon,
-.input-group-sm > .input-group-btn > select[multiple].btn {
+.input-group-sm > .input-group-btn > select[multiple].btn, .input-group-sm > .input-group-btn > select[multiple].btn__default, .input-group-sm > .input-group-btn > select[multiple].btn__default--outline, .input-group-sm > .input-group-btn > select[multiple].btn__primary, .input-group-sm > .input-group-btn > select[multiple].btn__info, .input-group-sm > .input-group-btn > select[multiple].btn__danger, .input-group-sm > .input-group-btn > select[multiple].btn__success, .input-group-sm > .input-group-btn > select[multiple].btn__link {
   height: auto; }
 
 .form-group-sm .form-control {
@@ -2433,7 +2503,7 @@ select[multiple].input-sm, .input-group-sm > select[multiple].form-control,
 
 .input-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .btn {
+.input-group-lg > .input-group-btn > .btn, .input-group-lg > .input-group-btn > .btn__default, .input-group-lg > .input-group-btn > .btn__default--outline, .input-group-lg > .input-group-btn > .btn__primary, .input-group-lg > .input-group-btn > .btn__info, .input-group-lg > .input-group-btn > .btn__danger, .input-group-lg > .input-group-btn > .btn__success, .input-group-lg > .input-group-btn > .btn__link {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2442,7 +2512,7 @@ select[multiple].input-sm, .input-group-sm > select[multiple].form-control,
 
 select.input-lg, .input-group-lg > select.form-control,
 .input-group-lg > select.input-group-addon,
-.input-group-lg > .input-group-btn > select.btn {
+.input-group-lg > .input-group-btn > select.btn, .input-group-lg > .input-group-btn > select.btn__default, .input-group-lg > .input-group-btn > select.btn__default--outline, .input-group-lg > .input-group-btn > select.btn__primary, .input-group-lg > .input-group-btn > select.btn__info, .input-group-lg > .input-group-btn > select.btn__danger, .input-group-lg > .input-group-btn > select.btn__success, .input-group-lg > .input-group-btn > select.btn__link {
   height: 46px;
   line-height: 46px; }
 
@@ -2450,9 +2520,16 @@ textarea.input-lg,
 .input-group-lg > textarea.form-control,
 .input-group-lg > textarea.input-group-addon,
 .input-group-lg > .input-group-btn > textarea.btn,
+.input-group-lg > .input-group-btn > textarea.btn__default,
+.input-group-lg > .input-group-btn > textarea.btn__default--outline,
+.input-group-lg > .input-group-btn > textarea.btn__primary,
+.input-group-lg > .input-group-btn > textarea.btn__info,
+.input-group-lg > .input-group-btn > textarea.btn__danger,
+.input-group-lg > .input-group-btn > textarea.btn__success,
+.input-group-lg > .input-group-btn > textarea.btn__link,
 select[multiple].input-lg, .input-group-lg > select[multiple].form-control,
 .input-group-lg > select[multiple].input-group-addon,
-.input-group-lg > .input-group-btn > select[multiple].btn {
+.input-group-lg > .input-group-btn > select[multiple].btn, .input-group-lg > .input-group-btn > select[multiple].btn__default, .input-group-lg > .input-group-btn > select[multiple].btn__default--outline, .input-group-lg > .input-group-btn > select[multiple].btn__primary, .input-group-lg > .input-group-btn > select[multiple].btn__info, .input-group-lg > .input-group-btn > select[multiple].btn__danger, .input-group-lg > .input-group-btn > select[multiple].btn__success, .input-group-lg > .input-group-btn > select[multiple].btn__link {
   height: auto; }
 
 .form-group-lg .form-control {
@@ -2498,6 +2575,13 @@ select[multiple].input-lg, .input-group-lg > select[multiple].form-control,
 .input-group-lg > .form-control + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__default + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__default--outline + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__primary + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__info + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__danger + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__success + .form-control-feedback,
+.input-group-lg > .input-group-btn > .btn__link + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback {
   width: 46px;
@@ -2508,6 +2592,13 @@ select[multiple].input-lg, .input-group-lg > select[multiple].form-control,
 .input-group-sm > .form-control + .form-control-feedback,
 .input-group-sm > .input-group-addon + .form-control-feedback,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__default + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__default--outline + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__primary + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__info + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__danger + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__success + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn__link + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback {
   width: 30px;
@@ -2687,7 +2778,7 @@ select[multiple].input-lg, .input-group-lg > select[multiple].form-control,
     padding-top: 6px;
     font-size: 12px; } }
 
-.btn {
+.btn, .btn__default, .btn__default--outline, .btn__primary, .btn__info, .btn__danger, .btn__success, .btn__link {
   display: inline-block;
   margin-bottom: 0;
   font-weight: 300;
@@ -2708,269 +2799,462 @@ select[multiple].input-lg, .input-group-lg > select[multiple].form-control,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus,
+  .btn__default:focus,
+  .btn__default--outline:focus, .btn__primary:focus,
+  .btn__info:focus,
+  .btn__danger:focus,
+  .btn__success:focus,
+  .btn__link:focus,
   .btn.focus,
+  .focus.btn__default,
+  .focus.btn__default--outline, .focus.btn__primary,
+  .focus.btn__info,
+  .focus.btn__danger,
+  .focus.btn__success,
+  .focus.btn__link,
   .btn:active:focus,
+  .btn__default:active:focus,
+  .btn__default--outline:active:focus, .btn__primary:active:focus,
+  .btn__info:active:focus,
+  .btn__danger:active:focus,
+  .btn__success:active:focus,
+  .btn__link:active:focus,
   .btn:active.focus,
+  .btn__default:active.focus,
+  .btn__default--outline:active.focus, .btn__primary:active.focus,
+  .btn__info:active.focus,
+  .btn__danger:active.focus,
+  .btn__success:active.focus,
+  .btn__link:active.focus,
   .btn.active:focus,
-  .btn.active.focus {
+  .active.btn__default:focus,
+  .active.btn__default--outline:focus, .active.btn__primary:focus,
+  .active.btn__info:focus,
+  .active.btn__danger:focus,
+  .active.btn__success:focus,
+  .active.btn__link:focus,
+  .btn.active.focus, .active.focus.btn__default, .active.focus.btn__default--outline, .active.focus.btn__primary, .active.focus.btn__info, .active.focus.btn__danger, .active.focus.btn__success, .active.focus.btn__link {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover,
+  .btn__default:hover,
+  .btn__default--outline:hover, .btn__primary:hover,
+  .btn__info:hover,
+  .btn__danger:hover,
+  .btn__success:hover,
+  .btn__link:hover,
   .btn:focus,
-  .btn.focus {
+  .btn__default:focus,
+  .btn__default--outline:focus, .btn__primary:focus,
+  .btn__info:focus,
+  .btn__danger:focus,
+  .btn__success:focus,
+  .btn__link:focus,
+  .btn.focus, .focus.btn__default, .focus.btn__default--outline, .focus.btn__primary, .focus.btn__info, .focus.btn__danger, .focus.btn__success, .focus.btn__link {
     color: #333;
     text-decoration: none; }
   .btn:active,
-  .btn.active {
+  .btn__default:active,
+  .btn__default--outline:active, .btn__primary:active,
+  .btn__info:active,
+  .btn__danger:active,
+  .btn__success:active,
+  .btn__link:active,
+  .btn.active, .active.btn__default, .active.btn__default--outline, .active.btn__primary, .active.btn__info, .active.btn__danger, .active.btn__success, .active.btn__link {
     outline: 0;
     background-image: none;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
   .btn.disabled,
+  .disabled.btn__default,
+  .disabled.btn__default--outline, .disabled.btn__primary,
+  .disabled.btn__info,
+  .disabled.btn__danger,
+  .disabled.btn__success,
+  .disabled.btn__link,
   .btn[disabled],
-  fieldset[disabled] .btn {
+  [disabled].btn__default,
+  [disabled].btn__default--outline, [disabled].btn__primary,
+  [disabled].btn__info,
+  [disabled].btn__danger,
+  [disabled].btn__success,
+  [disabled].btn__link,
+  fieldset[disabled] .btn, fieldset[disabled] .btn__default, fieldset[disabled] .btn__default--outline, fieldset[disabled] .btn__primary, fieldset[disabled] .btn__info, fieldset[disabled] .btn__danger, fieldset[disabled] .btn__success, fieldset[disabled] .btn__link {
     cursor: not-allowed;
     opacity: 0.65;
     filter: alpha(opacity=65);
     box-shadow: none; }
 
 a.btn.disabled,
-fieldset[disabled] a.btn {
+a.disabled.btn__default,
+a.disabled.btn__default--outline, a.disabled.btn__primary,
+a.disabled.btn__info,
+a.disabled.btn__danger,
+a.disabled.btn__success,
+a.disabled.btn__link,
+fieldset[disabled] a.btn, fieldset[disabled] a.btn__default, fieldset[disabled] a.btn__default--outline, fieldset[disabled] a.btn__primary, fieldset[disabled] a.btn__info, fieldset[disabled] a.btn__danger, fieldset[disabled] a.btn__success, fieldset[disabled] a.btn__link {
   pointer-events: none; }
 
-.btn-default {
+.btn-default, .btn__default, .btn__default--outline {
   color: #333;
   background-color: #fff;
   border-color: #ccc; }
   .btn-default:focus,
-  .btn-default.focus {
+  .btn__default:focus,
+  .btn__default--outline:focus, .btn-default.focus, .focus.btn__default, .focus.btn__default--outline {
     color: #333;
     background-color: #e6e6e6;
     border-color: #8c8c8c; }
-  .btn-default:hover {
+  .btn-default:hover, .btn__default:hover, .btn__default--outline:hover {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
   .btn-default:active,
-  .btn-default.active,
-  .open > .btn-default.dropdown-toggle {
+  .btn__default:active,
+  .btn__default--outline:active, .btn-default.active,
+  .active.btn__default,
+  .active.btn__default--outline, .open > .btn-default.dropdown-toggle, .open > .dropdown-toggle.btn__default, .open > .dropdown-toggle.btn__default--outline {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
     .btn-default:active:hover,
-    .btn-default:active:focus,
-    .btn-default:active.focus,
-    .btn-default.active:hover,
-    .btn-default.active:focus,
-    .btn-default.active.focus,
-    .open > .btn-default.dropdown-toggle:hover,
+    .btn__default:active:hover,
+    .btn__default--outline:active:hover, .btn-default:active:focus,
+    .btn__default:active:focus,
+    .btn__default--outline:active:focus, .btn-default:active.focus,
+    .btn__default:active.focus,
+    .btn__default--outline:active.focus, .btn-default.active:hover,
+    .active.btn__default:hover,
+    .active.btn__default--outline:hover, .btn-default.active:focus,
+    .active.btn__default:focus,
+    .active.btn__default--outline:focus, .btn-default.active.focus,
+    .active.focus.btn__default,
+    .active.focus.btn__default--outline, .open > .btn-default.dropdown-toggle:hover,
+    .open > .dropdown-toggle.btn__default:hover,
+    .open > .dropdown-toggle.btn__default--outline:hover,
     .open > .btn-default.dropdown-toggle:focus,
-    .open > .btn-default.dropdown-toggle.focus {
+    .open > .dropdown-toggle.btn__default:focus,
+    .open > .dropdown-toggle.btn__default--outline:focus,
+    .open > .btn-default.dropdown-toggle.focus, .open > .dropdown-toggle.focus.btn__default, .open > .dropdown-toggle.focus.btn__default--outline {
       color: #333;
       background-color: #d4d4d4;
       border-color: #8c8c8c; }
   .btn-default:active,
-  .btn-default.active,
-  .open > .btn-default.dropdown-toggle {
+  .btn__default:active,
+  .btn__default--outline:active, .btn-default.active,
+  .active.btn__default,
+  .active.btn__default--outline, .open > .btn-default.dropdown-toggle, .open > .dropdown-toggle.btn__default, .open > .dropdown-toggle.btn__default--outline {
     background-image: none; }
   .btn-default.disabled,
-  .btn-default.disabled:hover,
-  .btn-default.disabled:focus,
-  .btn-default.disabled.focus,
-  .btn-default.disabled:active,
-  .btn-default.disabled.active,
-  .btn-default[disabled],
-  .btn-default[disabled]:hover,
-  .btn-default[disabled]:focus,
-  .btn-default[disabled].focus,
-  .btn-default[disabled]:active,
-  .btn-default[disabled].active,
-  fieldset[disabled] .btn-default,
+  .disabled.btn__default,
+  .disabled.btn__default--outline, .btn-default.disabled:hover,
+  .disabled.btn__default:hover,
+  .disabled.btn__default--outline:hover, .btn-default.disabled:focus,
+  .disabled.btn__default:focus,
+  .disabled.btn__default--outline:focus, .btn-default.disabled.focus,
+  .disabled.focus.btn__default,
+  .disabled.focus.btn__default--outline, .btn-default.disabled:active,
+  .disabled.btn__default:active,
+  .disabled.btn__default--outline:active, .btn-default.disabled.active,
+  .disabled.active.btn__default,
+  .disabled.active.btn__default--outline, .btn-default[disabled],
+  [disabled].btn__default,
+  [disabled].btn__default--outline, .btn-default[disabled]:hover,
+  [disabled].btn__default:hover,
+  [disabled].btn__default--outline:hover, .btn-default[disabled]:focus,
+  [disabled].btn__default:focus,
+  [disabled].btn__default--outline:focus, .btn-default[disabled].focus,
+  [disabled].focus.btn__default,
+  [disabled].focus.btn__default--outline, .btn-default[disabled]:active,
+  [disabled].btn__default:active,
+  [disabled].btn__default--outline:active, .btn-default[disabled].active,
+  [disabled].active.btn__default,
+  [disabled].active.btn__default--outline, fieldset[disabled] .btn-default,
+  fieldset[disabled] .btn__default,
+  fieldset[disabled] .btn__default--outline,
   fieldset[disabled] .btn-default:hover,
+  fieldset[disabled] .btn__default:hover,
+  fieldset[disabled] .btn__default--outline:hover,
   fieldset[disabled] .btn-default:focus,
+  fieldset[disabled] .btn__default:focus,
+  fieldset[disabled] .btn__default--outline:focus,
   fieldset[disabled] .btn-default.focus,
+  fieldset[disabled] .focus.btn__default,
+  fieldset[disabled] .focus.btn__default--outline,
   fieldset[disabled] .btn-default:active,
-  fieldset[disabled] .btn-default.active {
+  fieldset[disabled] .btn__default:active,
+  fieldset[disabled] .btn__default--outline:active,
+  fieldset[disabled] .btn-default.active, fieldset[disabled] .active.btn__default, fieldset[disabled] .active.btn__default--outline {
     background-color: #fff;
     border-color: #ccc; }
-  .btn-default .badge {
+  .btn-default .badge, .btn__default .badge, .btn__default--outline .badge {
     color: #fff;
     background-color: #333; }
 
-.btn-primary {
+.btn-primary, .btn__primary {
   color: #fff;
   background-color: #2B5A84;
   border-color: #254d71; }
   .btn-primary:focus,
-  .btn-primary.focus {
+  .btn__primary:focus,
+  .btn-primary.focus, .focus.btn__primary {
     color: #fff;
     background-color: #1e405e;
     border-color: #050b11; }
-  .btn-primary:hover {
+  .btn-primary:hover, .btn__primary:hover {
     color: #fff;
     background-color: #1e405e;
     border-color: #162d43; }
   .btn-primary:active,
+  .btn__primary:active,
   .btn-primary.active,
-  .open > .btn-primary.dropdown-toggle {
+  .active.btn__primary,
+  .open > .btn-primary.dropdown-toggle, .open > .dropdown-toggle.btn__primary {
     color: #fff;
     background-color: #1e405e;
     border-color: #162d43; }
     .btn-primary:active:hover,
+    .btn__primary:active:hover,
     .btn-primary:active:focus,
+    .btn__primary:active:focus,
     .btn-primary:active.focus,
+    .btn__primary:active.focus,
     .btn-primary.active:hover,
+    .active.btn__primary:hover,
     .btn-primary.active:focus,
+    .active.btn__primary:focus,
     .btn-primary.active.focus,
+    .active.focus.btn__primary,
     .open > .btn-primary.dropdown-toggle:hover,
+    .open > .dropdown-toggle.btn__primary:hover,
     .open > .btn-primary.dropdown-toggle:focus,
-    .open > .btn-primary.dropdown-toggle.focus {
+    .open > .dropdown-toggle.btn__primary:focus,
+    .open > .btn-primary.dropdown-toggle.focus, .open > .dropdown-toggle.focus.btn__primary {
       color: #fff;
       background-color: #162d43;
       border-color: #050b11; }
   .btn-primary:active,
+  .btn__primary:active,
   .btn-primary.active,
-  .open > .btn-primary.dropdown-toggle {
+  .active.btn__primary,
+  .open > .btn-primary.dropdown-toggle, .open > .dropdown-toggle.btn__primary {
     background-image: none; }
   .btn-primary.disabled,
+  .disabled.btn__primary,
   .btn-primary.disabled:hover,
+  .disabled.btn__primary:hover,
   .btn-primary.disabled:focus,
+  .disabled.btn__primary:focus,
   .btn-primary.disabled.focus,
+  .disabled.focus.btn__primary,
   .btn-primary.disabled:active,
+  .disabled.btn__primary:active,
   .btn-primary.disabled.active,
+  .disabled.active.btn__primary,
   .btn-primary[disabled],
+  [disabled].btn__primary,
   .btn-primary[disabled]:hover,
+  [disabled].btn__primary:hover,
   .btn-primary[disabled]:focus,
+  [disabled].btn__primary:focus,
   .btn-primary[disabled].focus,
+  [disabled].focus.btn__primary,
   .btn-primary[disabled]:active,
+  [disabled].btn__primary:active,
   .btn-primary[disabled].active,
+  [disabled].active.btn__primary,
   fieldset[disabled] .btn-primary,
+  fieldset[disabled] .btn__primary,
   fieldset[disabled] .btn-primary:hover,
+  fieldset[disabled] .btn__primary:hover,
   fieldset[disabled] .btn-primary:focus,
+  fieldset[disabled] .btn__primary:focus,
   fieldset[disabled] .btn-primary.focus,
+  fieldset[disabled] .focus.btn__primary,
   fieldset[disabled] .btn-primary:active,
-  fieldset[disabled] .btn-primary.active {
+  fieldset[disabled] .btn__primary:active,
+  fieldset[disabled] .btn-primary.active, fieldset[disabled] .active.btn__primary {
     background-color: #2B5A84;
     border-color: #254d71; }
-  .btn-primary .badge {
+  .btn-primary .badge, .btn__primary .badge {
     color: #2B5A84;
     background-color: #fff; }
 
-.btn-success {
+.btn-success, .btn__success {
   color: #fff;
   background-color: #5cb85c;
   border-color: #4cae4c; }
   .btn-success:focus,
-  .btn-success.focus {
+  .btn__success:focus,
+  .btn-success.focus, .focus.btn__success {
     color: #fff;
     background-color: #449d44;
     border-color: #255625; }
-  .btn-success:hover {
+  .btn-success:hover, .btn__success:hover {
     color: #fff;
     background-color: #449d44;
     border-color: #398439; }
   .btn-success:active,
+  .btn__success:active,
   .btn-success.active,
-  .open > .btn-success.dropdown-toggle {
+  .active.btn__success,
+  .open > .btn-success.dropdown-toggle, .open > .dropdown-toggle.btn__success {
     color: #fff;
     background-color: #449d44;
     border-color: #398439; }
     .btn-success:active:hover,
+    .btn__success:active:hover,
     .btn-success:active:focus,
+    .btn__success:active:focus,
     .btn-success:active.focus,
+    .btn__success:active.focus,
     .btn-success.active:hover,
+    .active.btn__success:hover,
     .btn-success.active:focus,
+    .active.btn__success:focus,
     .btn-success.active.focus,
+    .active.focus.btn__success,
     .open > .btn-success.dropdown-toggle:hover,
+    .open > .dropdown-toggle.btn__success:hover,
     .open > .btn-success.dropdown-toggle:focus,
-    .open > .btn-success.dropdown-toggle.focus {
+    .open > .dropdown-toggle.btn__success:focus,
+    .open > .btn-success.dropdown-toggle.focus, .open > .dropdown-toggle.focus.btn__success {
       color: #fff;
       background-color: #398439;
       border-color: #255625; }
   .btn-success:active,
+  .btn__success:active,
   .btn-success.active,
-  .open > .btn-success.dropdown-toggle {
+  .active.btn__success,
+  .open > .btn-success.dropdown-toggle, .open > .dropdown-toggle.btn__success {
     background-image: none; }
   .btn-success.disabled,
+  .disabled.btn__success,
   .btn-success.disabled:hover,
+  .disabled.btn__success:hover,
   .btn-success.disabled:focus,
+  .disabled.btn__success:focus,
   .btn-success.disabled.focus,
+  .disabled.focus.btn__success,
   .btn-success.disabled:active,
+  .disabled.btn__success:active,
   .btn-success.disabled.active,
+  .disabled.active.btn__success,
   .btn-success[disabled],
+  [disabled].btn__success,
   .btn-success[disabled]:hover,
+  [disabled].btn__success:hover,
   .btn-success[disabled]:focus,
+  [disabled].btn__success:focus,
   .btn-success[disabled].focus,
+  [disabled].focus.btn__success,
   .btn-success[disabled]:active,
+  [disabled].btn__success:active,
   .btn-success[disabled].active,
+  [disabled].active.btn__success,
   fieldset[disabled] .btn-success,
+  fieldset[disabled] .btn__success,
   fieldset[disabled] .btn-success:hover,
+  fieldset[disabled] .btn__success:hover,
   fieldset[disabled] .btn-success:focus,
+  fieldset[disabled] .btn__success:focus,
   fieldset[disabled] .btn-success.focus,
+  fieldset[disabled] .focus.btn__success,
   fieldset[disabled] .btn-success:active,
-  fieldset[disabled] .btn-success.active {
+  fieldset[disabled] .btn__success:active,
+  fieldset[disabled] .btn-success.active, fieldset[disabled] .active.btn__success {
     background-color: #5cb85c;
     border-color: #4cae4c; }
-  .btn-success .badge {
+  .btn-success .badge, .btn__success .badge {
     color: #5cb85c;
     background-color: #fff; }
 
-.btn-info {
+.btn-info, .btn__info {
   color: #fff;
   background-color: #5bc0de;
   border-color: #46b8da; }
   .btn-info:focus,
-  .btn-info.focus {
+  .btn__info:focus,
+  .btn-info.focus, .focus.btn__info {
     color: #fff;
     background-color: #31b0d5;
     border-color: #1b6d85; }
-  .btn-info:hover {
+  .btn-info:hover, .btn__info:hover {
     color: #fff;
     background-color: #31b0d5;
     border-color: #269abc; }
   .btn-info:active,
+  .btn__info:active,
   .btn-info.active,
-  .open > .btn-info.dropdown-toggle {
+  .active.btn__info,
+  .open > .btn-info.dropdown-toggle, .open > .dropdown-toggle.btn__info {
     color: #fff;
     background-color: #31b0d5;
     border-color: #269abc; }
     .btn-info:active:hover,
+    .btn__info:active:hover,
     .btn-info:active:focus,
+    .btn__info:active:focus,
     .btn-info:active.focus,
+    .btn__info:active.focus,
     .btn-info.active:hover,
+    .active.btn__info:hover,
     .btn-info.active:focus,
+    .active.btn__info:focus,
     .btn-info.active.focus,
+    .active.focus.btn__info,
     .open > .btn-info.dropdown-toggle:hover,
+    .open > .dropdown-toggle.btn__info:hover,
     .open > .btn-info.dropdown-toggle:focus,
-    .open > .btn-info.dropdown-toggle.focus {
+    .open > .dropdown-toggle.btn__info:focus,
+    .open > .btn-info.dropdown-toggle.focus, .open > .dropdown-toggle.focus.btn__info {
       color: #fff;
       background-color: #269abc;
       border-color: #1b6d85; }
   .btn-info:active,
+  .btn__info:active,
   .btn-info.active,
-  .open > .btn-info.dropdown-toggle {
+  .active.btn__info,
+  .open > .btn-info.dropdown-toggle, .open > .dropdown-toggle.btn__info {
     background-image: none; }
   .btn-info.disabled,
+  .disabled.btn__info,
   .btn-info.disabled:hover,
+  .disabled.btn__info:hover,
   .btn-info.disabled:focus,
+  .disabled.btn__info:focus,
   .btn-info.disabled.focus,
+  .disabled.focus.btn__info,
   .btn-info.disabled:active,
+  .disabled.btn__info:active,
   .btn-info.disabled.active,
+  .disabled.active.btn__info,
   .btn-info[disabled],
+  [disabled].btn__info,
   .btn-info[disabled]:hover,
+  [disabled].btn__info:hover,
   .btn-info[disabled]:focus,
+  [disabled].btn__info:focus,
   .btn-info[disabled].focus,
+  [disabled].focus.btn__info,
   .btn-info[disabled]:active,
+  [disabled].btn__info:active,
   .btn-info[disabled].active,
+  [disabled].active.btn__info,
   fieldset[disabled] .btn-info,
+  fieldset[disabled] .btn__info,
   fieldset[disabled] .btn-info:hover,
+  fieldset[disabled] .btn__info:hover,
   fieldset[disabled] .btn-info:focus,
+  fieldset[disabled] .btn__info:focus,
   fieldset[disabled] .btn-info.focus,
+  fieldset[disabled] .focus.btn__info,
   fieldset[disabled] .btn-info:active,
-  fieldset[disabled] .btn-info.active {
+  fieldset[disabled] .btn__info:active,
+  fieldset[disabled] .btn-info.active, fieldset[disabled] .active.btn__info {
     background-color: #5bc0de;
     border-color: #46b8da; }
-  .btn-info .badge {
+  .btn-info .badge, .btn__info .badge {
     color: #5bc0de;
     background-color: #fff; }
 
@@ -3033,106 +3317,147 @@ fieldset[disabled] a.btn {
     color: #f0ad4e;
     background-color: #fff; }
 
-.btn-danger {
+.btn-danger, .btn__danger {
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a; }
   .btn-danger:focus,
-  .btn-danger.focus {
+  .btn__danger:focus,
+  .btn-danger.focus, .focus.btn__danger {
     color: #fff;
     background-color: #c9302c;
     border-color: #761c19; }
-  .btn-danger:hover {
+  .btn-danger:hover, .btn__danger:hover {
     color: #fff;
     background-color: #c9302c;
     border-color: #ac2925; }
   .btn-danger:active,
+  .btn__danger:active,
   .btn-danger.active,
-  .open > .btn-danger.dropdown-toggle {
+  .active.btn__danger,
+  .open > .btn-danger.dropdown-toggle, .open > .dropdown-toggle.btn__danger {
     color: #fff;
     background-color: #c9302c;
     border-color: #ac2925; }
     .btn-danger:active:hover,
+    .btn__danger:active:hover,
     .btn-danger:active:focus,
+    .btn__danger:active:focus,
     .btn-danger:active.focus,
+    .btn__danger:active.focus,
     .btn-danger.active:hover,
+    .active.btn__danger:hover,
     .btn-danger.active:focus,
+    .active.btn__danger:focus,
     .btn-danger.active.focus,
+    .active.focus.btn__danger,
     .open > .btn-danger.dropdown-toggle:hover,
+    .open > .dropdown-toggle.btn__danger:hover,
     .open > .btn-danger.dropdown-toggle:focus,
-    .open > .btn-danger.dropdown-toggle.focus {
+    .open > .dropdown-toggle.btn__danger:focus,
+    .open > .btn-danger.dropdown-toggle.focus, .open > .dropdown-toggle.focus.btn__danger {
       color: #fff;
       background-color: #ac2925;
       border-color: #761c19; }
   .btn-danger:active,
+  .btn__danger:active,
   .btn-danger.active,
-  .open > .btn-danger.dropdown-toggle {
+  .active.btn__danger,
+  .open > .btn-danger.dropdown-toggle, .open > .dropdown-toggle.btn__danger {
     background-image: none; }
   .btn-danger.disabled,
+  .disabled.btn__danger,
   .btn-danger.disabled:hover,
+  .disabled.btn__danger:hover,
   .btn-danger.disabled:focus,
+  .disabled.btn__danger:focus,
   .btn-danger.disabled.focus,
+  .disabled.focus.btn__danger,
   .btn-danger.disabled:active,
+  .disabled.btn__danger:active,
   .btn-danger.disabled.active,
+  .disabled.active.btn__danger,
   .btn-danger[disabled],
+  [disabled].btn__danger,
   .btn-danger[disabled]:hover,
+  [disabled].btn__danger:hover,
   .btn-danger[disabled]:focus,
+  [disabled].btn__danger:focus,
   .btn-danger[disabled].focus,
+  [disabled].focus.btn__danger,
   .btn-danger[disabled]:active,
+  [disabled].btn__danger:active,
   .btn-danger[disabled].active,
+  [disabled].active.btn__danger,
   fieldset[disabled] .btn-danger,
+  fieldset[disabled] .btn__danger,
   fieldset[disabled] .btn-danger:hover,
+  fieldset[disabled] .btn__danger:hover,
   fieldset[disabled] .btn-danger:focus,
+  fieldset[disabled] .btn__danger:focus,
   fieldset[disabled] .btn-danger.focus,
+  fieldset[disabled] .focus.btn__danger,
   fieldset[disabled] .btn-danger:active,
-  fieldset[disabled] .btn-danger.active {
+  fieldset[disabled] .btn__danger:active,
+  fieldset[disabled] .btn-danger.active, fieldset[disabled] .active.btn__danger {
     background-color: #d9534f;
     border-color: #d43f3a; }
-  .btn-danger .badge {
+  .btn-danger .badge, .btn__danger .badge {
     color: #d9534f;
     background-color: #fff; }
 
-.btn-link {
+.btn-link, .btn__link {
   color: #2B5A84;
   font-weight: normal;
   border-radius: 0; }
   .btn-link,
+  .btn__link,
   .btn-link:active,
+  .btn__link:active,
   .btn-link.active,
+  .active.btn__link,
   .btn-link[disabled],
-  fieldset[disabled] .btn-link {
+  [disabled].btn__link,
+  fieldset[disabled] .btn-link, fieldset[disabled] .btn__link {
     background-color: transparent;
     box-shadow: none; }
   .btn-link,
+  .btn__link,
   .btn-link:hover,
+  .btn__link:hover,
   .btn-link:focus,
-  .btn-link:active {
+  .btn__link:focus,
+  .btn-link:active, .btn__link:active {
     border-color: transparent; }
   .btn-link:hover,
-  .btn-link:focus {
+  .btn__link:hover,
+  .btn-link:focus, .btn__link:focus {
     color: #18334a;
     text-decoration: underline;
     background-color: transparent; }
   .btn-link[disabled]:hover,
+  [disabled].btn__link:hover,
   .btn-link[disabled]:focus,
+  [disabled].btn__link:focus,
   fieldset[disabled] .btn-link:hover,
-  fieldset[disabled] .btn-link:focus {
+  fieldset[disabled] .btn__link:hover,
+  fieldset[disabled] .btn-link:focus, fieldset[disabled] .btn__link:focus {
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn__default, .btn-group-lg > .btn__default--outline, .btn-group-lg > .btn__primary, .btn-group-lg > .btn__info, .btn-group-lg > .btn__danger, .btn-group-lg > .btn__success, .btn-group-lg > .btn__link {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn__default, .btn-group-sm > .btn__default--outline, .btn-group-sm > .btn__primary, .btn-group-sm > .btn__info, .btn-group-sm > .btn__danger, .btn-group-sm > .btn__success, .btn-group-sm > .btn__link {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .btn__default, .btn-group-xs > .btn__default--outline, .btn-group-xs > .btn__primary, .btn-group-xs > .btn__info, .btn-group-xs > .btn__danger, .btn-group-xs > .btn__success, .btn-group-xs > .btn__link {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -3317,22 +3642,155 @@ tbody.collapse.in {
   display: inline-block;
   vertical-align: middle; }
   .btn-group > .btn,
-  .btn-group-vertical > .btn {
+  .btn-group > .btn__default,
+  .btn-group > .btn__default--outline,
+  .btn-group > .btn__primary,
+  .btn-group > .btn__info,
+  .btn-group > .btn__danger,
+  .btn-group > .btn__success,
+  .btn-group > .btn__link,
+  .btn-group-vertical > .btn, .btn-group-vertical > .btn__default, .btn-group-vertical > .btn__default--outline, .btn-group-vertical > .btn__primary, .btn-group-vertical > .btn__info, .btn-group-vertical > .btn__danger, .btn-group-vertical > .btn__success, .btn-group-vertical > .btn__link {
     position: relative;
     float: left; }
     .btn-group > .btn:hover,
+    .btn-group > .btn__default:hover,
+    .btn-group > .btn__default--outline:hover,
+    .btn-group > .btn__primary:hover,
+    .btn-group > .btn__info:hover,
+    .btn-group > .btn__danger:hover,
+    .btn-group > .btn__success:hover,
+    .btn-group > .btn__link:hover,
     .btn-group > .btn:focus,
+    .btn-group > .btn__default:focus,
+    .btn-group > .btn__default--outline:focus,
+    .btn-group > .btn__primary:focus,
+    .btn-group > .btn__info:focus,
+    .btn-group > .btn__danger:focus,
+    .btn-group > .btn__success:focus,
+    .btn-group > .btn__link:focus,
     .btn-group > .btn:active,
+    .btn-group > .btn__default:active,
+    .btn-group > .btn__default--outline:active,
+    .btn-group > .btn__primary:active,
+    .btn-group > .btn__info:active,
+    .btn-group > .btn__danger:active,
+    .btn-group > .btn__success:active,
+    .btn-group > .btn__link:active,
     .btn-group > .btn.active,
+    .btn-group > .active.btn__default,
+    .btn-group > .active.btn__default--outline,
+    .btn-group > .active.btn__primary,
+    .btn-group > .active.btn__info,
+    .btn-group > .active.btn__danger,
+    .btn-group > .active.btn__success,
+    .btn-group > .active.btn__link,
     .btn-group-vertical > .btn:hover,
+    .btn-group-vertical > .btn__default:hover,
+    .btn-group-vertical > .btn__default--outline:hover,
+    .btn-group-vertical > .btn__primary:hover,
+    .btn-group-vertical > .btn__info:hover,
+    .btn-group-vertical > .btn__danger:hover,
+    .btn-group-vertical > .btn__success:hover,
+    .btn-group-vertical > .btn__link:hover,
     .btn-group-vertical > .btn:focus,
+    .btn-group-vertical > .btn__default:focus,
+    .btn-group-vertical > .btn__default--outline:focus,
+    .btn-group-vertical > .btn__primary:focus,
+    .btn-group-vertical > .btn__info:focus,
+    .btn-group-vertical > .btn__danger:focus,
+    .btn-group-vertical > .btn__success:focus,
+    .btn-group-vertical > .btn__link:focus,
     .btn-group-vertical > .btn:active,
-    .btn-group-vertical > .btn.active {
+    .btn-group-vertical > .btn__default:active,
+    .btn-group-vertical > .btn__default--outline:active,
+    .btn-group-vertical > .btn__primary:active,
+    .btn-group-vertical > .btn__info:active,
+    .btn-group-vertical > .btn__danger:active,
+    .btn-group-vertical > .btn__success:active,
+    .btn-group-vertical > .btn__link:active,
+    .btn-group-vertical > .btn.active, .btn-group-vertical > .active.btn__default, .btn-group-vertical > .active.btn__default--outline, .btn-group-vertical > .active.btn__primary, .btn-group-vertical > .active.btn__info, .btn-group-vertical > .active.btn__danger, .btn-group-vertical > .active.btn__success, .btn-group-vertical > .active.btn__link {
       z-index: 2; }
 
 .btn-group .btn + .btn,
+.btn-group .btn__default + .btn,
+.btn-group .btn__default--outline + .btn,
+.btn-group .btn__primary + .btn,
+.btn-group .btn__info + .btn,
+.btn-group .btn__danger + .btn,
+.btn-group .btn__success + .btn,
+.btn-group .btn__link + .btn,
+.btn-group .btn + .btn__default,
+.btn-group .btn__default + .btn__default,
+.btn-group .btn__default--outline + .btn__default,
+.btn-group .btn__primary + .btn__default,
+.btn-group .btn__info + .btn__default,
+.btn-group .btn__danger + .btn__default,
+.btn-group .btn__success + .btn__default,
+.btn-group .btn__link + .btn__default,
+.btn-group .btn + .btn__default--outline,
+.btn-group .btn__default + .btn__default--outline,
+.btn-group .btn__default--outline + .btn__default--outline,
+.btn-group .btn__primary + .btn__default--outline,
+.btn-group .btn__info + .btn__default--outline,
+.btn-group .btn__danger + .btn__default--outline,
+.btn-group .btn__success + .btn__default--outline,
+.btn-group .btn__link + .btn__default--outline,
+.btn-group .btn + .btn__primary,
+.btn-group .btn__default + .btn__primary,
+.btn-group .btn__default--outline + .btn__primary,
+.btn-group .btn__primary + .btn__primary,
+.btn-group .btn__info + .btn__primary,
+.btn-group .btn__danger + .btn__primary,
+.btn-group .btn__success + .btn__primary,
+.btn-group .btn__link + .btn__primary,
+.btn-group .btn + .btn__info,
+.btn-group .btn__default + .btn__info,
+.btn-group .btn__default--outline + .btn__info,
+.btn-group .btn__primary + .btn__info,
+.btn-group .btn__info + .btn__info,
+.btn-group .btn__danger + .btn__info,
+.btn-group .btn__success + .btn__info,
+.btn-group .btn__link + .btn__info,
+.btn-group .btn + .btn__danger,
+.btn-group .btn__default + .btn__danger,
+.btn-group .btn__default--outline + .btn__danger,
+.btn-group .btn__primary + .btn__danger,
+.btn-group .btn__info + .btn__danger,
+.btn-group .btn__danger + .btn__danger,
+.btn-group .btn__success + .btn__danger,
+.btn-group .btn__link + .btn__danger,
+.btn-group .btn + .btn__success,
+.btn-group .btn__default + .btn__success,
+.btn-group .btn__default--outline + .btn__success,
+.btn-group .btn__primary + .btn__success,
+.btn-group .btn__info + .btn__success,
+.btn-group .btn__danger + .btn__success,
+.btn-group .btn__success + .btn__success,
+.btn-group .btn__link + .btn__success,
+.btn-group .btn + .btn__link,
+.btn-group .btn__default + .btn__link,
+.btn-group .btn__default--outline + .btn__link,
+.btn-group .btn__primary + .btn__link,
+.btn-group .btn__info + .btn__link,
+.btn-group .btn__danger + .btn__link,
+.btn-group .btn__success + .btn__link,
+.btn-group .btn__link + .btn__link,
 .btn-group .btn + .btn-group,
+.btn-group .btn__default + .btn-group,
+.btn-group .btn__default--outline + .btn-group,
+.btn-group .btn__primary + .btn-group,
+.btn-group .btn__info + .btn-group,
+.btn-group .btn__danger + .btn-group,
+.btn-group .btn__success + .btn-group,
+.btn-group .btn__link + .btn-group,
 .btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn__default,
+.btn-group .btn-group + .btn__default--outline,
+.btn-group .btn-group + .btn__primary,
+.btn-group .btn-group + .btn__info,
+.btn-group .btn-group + .btn__danger,
+.btn-group .btn-group + .btn__success,
+.btn-group .btn-group + .btn__link,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
@@ -3345,24 +3803,45 @@ tbody.collapse.in {
   .btn-toolbar:after {
     clear: both; }
   .btn-toolbar .btn,
+  .btn-toolbar .btn__default,
+  .btn-toolbar .btn__default--outline,
+  .btn-toolbar .btn__primary,
+  .btn-toolbar .btn__info,
+  .btn-toolbar .btn__danger,
+  .btn-toolbar .btn__success,
+  .btn-toolbar .btn__link,
   .btn-toolbar .btn-group,
   .btn-toolbar .input-group {
     float: left; }
   .btn-toolbar > .btn,
+  .btn-toolbar > .btn__default,
+  .btn-toolbar > .btn__default--outline,
+  .btn-toolbar > .btn__primary,
+  .btn-toolbar > .btn__info,
+  .btn-toolbar > .btn__danger,
+  .btn-toolbar > .btn__success,
+  .btn-toolbar > .btn__link,
   .btn-toolbar > .btn-group,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__default:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__default--outline:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__primary:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__info:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__danger:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__success:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .btn__link:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child, .btn-group > .btn__default:first-child, .btn-group > .btn__default--outline:first-child, .btn-group > .btn__primary:first-child, .btn-group > .btn__info:first-child, .btn-group > .btn__danger:first-child, .btn-group > .btn__success:first-child, .btn-group > .btn__link:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__default:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__default--outline:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__primary:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__info:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__danger:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__success:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .btn__link:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
 .btn-group > .btn:last-child:not(:first-child),
+.btn-group > .btn__default:last-child:not(:first-child),
+.btn-group > .btn__default--outline:last-child:not(:first-child),
+.btn-group > .btn__primary:last-child:not(:first-child),
+.btn-group > .btn__info:last-child:not(:first-child),
+.btn-group > .btn__danger:last-child:not(:first-child),
+.btn-group > .btn__success:last-child:not(:first-child),
+.btn-group > .btn__link:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3370,15 +3849,22 @@ tbody.collapse.in {
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__default, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__default--outline, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__primary, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__info, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__danger, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__success, .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn__link {
   border-radius: 0; }
 
 .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__default:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__default--outline:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__primary:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__info:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__danger:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__success:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn__link:last-child,
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__default:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__default--outline:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__primary:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__info:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__danger:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__success:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .btn__link:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3386,32 +3872,39 @@ tbody.collapse.in {
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .btn__default + .dropdown-toggle, .btn-group > .btn__default--outline + .dropdown-toggle, .btn-group > .btn__primary + .dropdown-toggle, .btn-group > .btn__info + .dropdown-toggle, .btn-group > .btn__danger + .dropdown-toggle, .btn-group > .btn__success + .dropdown-toggle, .btn-group > .btn__link + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .btn__default + .dropdown-toggle, .btn-group-lg.btn-group > .btn__default--outline + .dropdown-toggle, .btn-group-lg.btn-group > .btn__primary + .dropdown-toggle, .btn-group-lg.btn-group > .btn__info + .dropdown-toggle, .btn-group-lg.btn-group > .btn__danger + .dropdown-toggle, .btn-group-lg.btn-group > .btn__success + .dropdown-toggle, .btn-group-lg.btn-group > .btn__link + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
 .btn-group.open .dropdown-toggle {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn-group.open .dropdown-toggle.btn-link {
+  .btn-group.open .dropdown-toggle.btn-link, .btn-group.open .dropdown-toggle.btn__link {
     box-shadow: none; }
 
-.btn .caret {
+.btn .caret, .btn__default .caret, .btn__default--outline .caret, .btn__primary .caret, .btn__info .caret, .btn__danger .caret, .btn__success .caret, .btn__link .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .btn__default .caret, .btn-group-lg > .btn__default--outline .caret, .btn-group-lg > .btn__primary .caret, .btn-group-lg > .btn__info .caret, .btn-group-lg > .btn__danger .caret, .btn-group-lg > .btn__success .caret, .btn-group-lg > .btn__link .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .btn__default .caret, .dropup .btn-group-lg > .btn__default--outline .caret, .dropup .btn-group-lg > .btn__primary .caret, .dropup .btn-group-lg > .btn__info .caret, .dropup .btn-group-lg > .btn__danger .caret, .dropup .btn-group-lg > .btn__success .caret, .dropup .btn-group-lg > .btn__link .caret {
   border-width: 0 5px 5px; }
 
 .btn-group-vertical > .btn,
+.btn-group-vertical > .btn__default,
+.btn-group-vertical > .btn__default--outline,
+.btn-group-vertical > .btn__primary,
+.btn-group-vertical > .btn__info,
+.btn-group-vertical > .btn__danger,
+.btn-group-vertical > .btn__success,
+.btn-group-vertical > .btn__link,
 .btn-group-vertical > .btn-group,
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn__default, .btn-group-vertical > .btn-group > .btn__default--outline, .btn-group-vertical > .btn-group > .btn__primary, .btn-group-vertical > .btn-group > .btn__info, .btn-group-vertical > .btn-group > .btn__danger, .btn-group-vertical > .btn-group > .btn__success, .btn-group-vertical > .btn-group > .btn__link {
   display: block;
   float: none;
   width: 100%;
@@ -3425,38 +3918,122 @@ tbody.collapse.in {
 .btn-group-vertical > .btn-group:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .btn__default, .btn-group-vertical > .btn-group > .btn__default--outline, .btn-group-vertical > .btn-group > .btn__primary, .btn-group-vertical > .btn-group > .btn__info, .btn-group-vertical > .btn-group > .btn__danger, .btn-group-vertical > .btn-group > .btn__success, .btn-group-vertical > .btn-group > .btn__link {
   float: none; }
 
 .btn-group-vertical > .btn + .btn,
+.btn-group-vertical > .btn__default + .btn,
+.btn-group-vertical > .btn__default--outline + .btn,
+.btn-group-vertical > .btn__primary + .btn,
+.btn-group-vertical > .btn__info + .btn,
+.btn-group-vertical > .btn__danger + .btn,
+.btn-group-vertical > .btn__success + .btn,
+.btn-group-vertical > .btn__link + .btn,
+.btn-group-vertical > .btn + .btn__default,
+.btn-group-vertical > .btn__default + .btn__default,
+.btn-group-vertical > .btn__default--outline + .btn__default,
+.btn-group-vertical > .btn__primary + .btn__default,
+.btn-group-vertical > .btn__info + .btn__default,
+.btn-group-vertical > .btn__danger + .btn__default,
+.btn-group-vertical > .btn__success + .btn__default,
+.btn-group-vertical > .btn__link + .btn__default,
+.btn-group-vertical > .btn + .btn__default--outline,
+.btn-group-vertical > .btn__default + .btn__default--outline,
+.btn-group-vertical > .btn__default--outline + .btn__default--outline,
+.btn-group-vertical > .btn__primary + .btn__default--outline,
+.btn-group-vertical > .btn__info + .btn__default--outline,
+.btn-group-vertical > .btn__danger + .btn__default--outline,
+.btn-group-vertical > .btn__success + .btn__default--outline,
+.btn-group-vertical > .btn__link + .btn__default--outline,
+.btn-group-vertical > .btn + .btn__primary,
+.btn-group-vertical > .btn__default + .btn__primary,
+.btn-group-vertical > .btn__default--outline + .btn__primary,
+.btn-group-vertical > .btn__primary + .btn__primary,
+.btn-group-vertical > .btn__info + .btn__primary,
+.btn-group-vertical > .btn__danger + .btn__primary,
+.btn-group-vertical > .btn__success + .btn__primary,
+.btn-group-vertical > .btn__link + .btn__primary,
+.btn-group-vertical > .btn + .btn__info,
+.btn-group-vertical > .btn__default + .btn__info,
+.btn-group-vertical > .btn__default--outline + .btn__info,
+.btn-group-vertical > .btn__primary + .btn__info,
+.btn-group-vertical > .btn__info + .btn__info,
+.btn-group-vertical > .btn__danger + .btn__info,
+.btn-group-vertical > .btn__success + .btn__info,
+.btn-group-vertical > .btn__link + .btn__info,
+.btn-group-vertical > .btn + .btn__danger,
+.btn-group-vertical > .btn__default + .btn__danger,
+.btn-group-vertical > .btn__default--outline + .btn__danger,
+.btn-group-vertical > .btn__primary + .btn__danger,
+.btn-group-vertical > .btn__info + .btn__danger,
+.btn-group-vertical > .btn__danger + .btn__danger,
+.btn-group-vertical > .btn__success + .btn__danger,
+.btn-group-vertical > .btn__link + .btn__danger,
+.btn-group-vertical > .btn + .btn__success,
+.btn-group-vertical > .btn__default + .btn__success,
+.btn-group-vertical > .btn__default--outline + .btn__success,
+.btn-group-vertical > .btn__primary + .btn__success,
+.btn-group-vertical > .btn__info + .btn__success,
+.btn-group-vertical > .btn__danger + .btn__success,
+.btn-group-vertical > .btn__success + .btn__success,
+.btn-group-vertical > .btn__link + .btn__success,
+.btn-group-vertical > .btn + .btn__link,
+.btn-group-vertical > .btn__default + .btn__link,
+.btn-group-vertical > .btn__default--outline + .btn__link,
+.btn-group-vertical > .btn__primary + .btn__link,
+.btn-group-vertical > .btn__info + .btn__link,
+.btn-group-vertical > .btn__danger + .btn__link,
+.btn-group-vertical > .btn__success + .btn__link,
+.btn-group-vertical > .btn__link + .btn__link,
 .btn-group-vertical > .btn + .btn-group,
+.btn-group-vertical > .btn__default + .btn-group,
+.btn-group-vertical > .btn__default--outline + .btn-group,
+.btn-group-vertical > .btn__primary + .btn-group,
+.btn-group-vertical > .btn__info + .btn-group,
+.btn-group-vertical > .btn__danger + .btn-group,
+.btn-group-vertical > .btn__success + .btn-group,
+.btn-group-vertical > .btn__link + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > .btn-group + .btn__default,
+.btn-group-vertical > .btn-group + .btn__default--outline,
+.btn-group-vertical > .btn-group + .btn__primary,
+.btn-group-vertical > .btn-group + .btn__info,
+.btn-group-vertical > .btn-group + .btn__danger,
+.btn-group-vertical > .btn-group + .btn__success,
+.btn-group-vertical > .btn-group + .btn__link,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .btn__default:not(:first-child):not(:last-child), .btn-group-vertical > .btn__default--outline:not(:first-child):not(:last-child), .btn-group-vertical > .btn__primary:not(:first-child):not(:last-child), .btn-group-vertical > .btn__info:not(:first-child):not(:last-child), .btn-group-vertical > .btn__danger:not(:first-child):not(:last-child), .btn-group-vertical > .btn__success:not(:first-child):not(:last-child), .btn-group-vertical > .btn__link:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-.btn-group-vertical > .btn:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .btn__default:first-child:not(:last-child), .btn-group-vertical > .btn__default--outline:first-child:not(:last-child), .btn-group-vertical > .btn__primary:first-child:not(:last-child), .btn-group-vertical > .btn__info:first-child:not(:last-child), .btn-group-vertical > .btn__danger:first-child:not(:last-child), .btn-group-vertical > .btn__success:first-child:not(:last-child), .btn-group-vertical > .btn__link:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .btn__default:last-child:not(:first-child), .btn-group-vertical > .btn__default--outline:last-child:not(:first-child), .btn-group-vertical > .btn__primary:last-child:not(:first-child), .btn-group-vertical > .btn__info:last-child:not(:first-child), .btn-group-vertical > .btn__danger:last-child:not(:first-child), .btn-group-vertical > .btn__success:last-child:not(:first-child), .btn-group-vertical > .btn__link:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__default, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__default--outline, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__primary, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__info, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__danger, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__success, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn__link {
   border-radius: 0; }
 
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__default:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__default--outline:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__primary:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__info:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__danger:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__success:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn__link:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__default:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__default--outline:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__primary:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__info:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__danger:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__success:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn__link:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3466,19 +4043,47 @@ tbody.collapse.in {
   table-layout: fixed;
   border-collapse: separate; }
   .btn-group-justified > .btn,
+  .btn-group-justified > .btn__default,
+  .btn-group-justified > .btn__default--outline,
+  .btn-group-justified > .btn__primary,
+  .btn-group-justified > .btn__info,
+  .btn-group-justified > .btn__danger,
+  .btn-group-justified > .btn__success,
+  .btn-group-justified > .btn__link,
   .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .btn__default, .btn-group-justified > .btn-group .btn__default--outline, .btn-group-justified > .btn-group .btn__primary, .btn-group-justified > .btn-group .btn__info, .btn-group-justified > .btn-group .btn__danger, .btn-group-justified > .btn-group .btn__success, .btn-group-justified > .btn-group .btn__link {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
 [data-toggle="buttons"] > .btn input[type="radio"],
+[data-toggle="buttons"] > .btn__default input[type="radio"],
+[data-toggle="buttons"] > .btn__default--outline input[type="radio"],
+[data-toggle="buttons"] > .btn__primary input[type="radio"],
+[data-toggle="buttons"] > .btn__info input[type="radio"],
+[data-toggle="buttons"] > .btn__danger input[type="radio"],
+[data-toggle="buttons"] > .btn__success input[type="radio"],
+[data-toggle="buttons"] > .btn__link input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btn__default input[type="checkbox"],
+[data-toggle="buttons"] > .btn__default--outline input[type="checkbox"],
+[data-toggle="buttons"] > .btn__primary input[type="checkbox"],
+[data-toggle="buttons"] > .btn__info input[type="checkbox"],
+[data-toggle="buttons"] > .btn__danger input[type="checkbox"],
+[data-toggle="buttons"] > .btn__success input[type="checkbox"],
+[data-toggle="buttons"] > .btn__link input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+[data-toggle="buttons"] > .btn-group > .btn__default input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn__default--outline input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn__primary input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn__info input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn__danger input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn__success input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn__link input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__default input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__default--outline input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__primary input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__info input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__danger input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__success input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn__link input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -3524,12 +4129,12 @@ tbody.collapse.in {
   border: 1px solid #ccc;
   border-radius: 0; }
   .input-group-addon.input-sm, .input-group-sm > .input-group-addon,
-  .input-group-sm > .input-group-btn > .input-group-addon.btn {
+  .input-group-sm > .input-group-btn > .input-group-addon.btn, .input-group-sm > .input-group-btn > .input-group-addon.btn__default, .input-group-sm > .input-group-btn > .input-group-addon.btn__default--outline, .input-group-sm > .input-group-btn > .input-group-addon.btn__primary, .input-group-sm > .input-group-btn > .input-group-addon.btn__info, .input-group-sm > .input-group-btn > .input-group-addon.btn__danger, .input-group-sm > .input-group-btn > .input-group-addon.btn__success, .input-group-sm > .input-group-btn > .input-group-addon.btn__link {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
   .input-group-addon.input-lg, .input-group-lg > .input-group-addon,
-  .input-group-lg > .input-group-btn > .input-group-addon.btn {
+  .input-group-lg > .input-group-btn > .input-group-addon.btn, .input-group-lg > .input-group-btn > .input-group-addon.btn__default, .input-group-lg > .input-group-btn > .input-group-addon.btn__default--outline, .input-group-lg > .input-group-btn > .input-group-addon.btn__primary, .input-group-lg > .input-group-btn > .input-group-addon.btn__info, .input-group-lg > .input-group-btn > .input-group-addon.btn__danger, .input-group-lg > .input-group-btn > .input-group-addon.btn__success, .input-group-lg > .input-group-btn > .input-group-addon.btn__link {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
@@ -3540,10 +4145,31 @@ tbody.collapse.in {
 .input-group .form-control:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn__default,
+.input-group-btn:first-child > .btn__default--outline,
+.input-group-btn:first-child > .btn__primary,
+.input-group-btn:first-child > .btn__info,
+.input-group-btn:first-child > .btn__danger,
+.input-group-btn:first-child > .btn__success,
+.input-group-btn:first-child > .btn__link,
 .input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .btn-group > .btn__default,
+.input-group-btn:first-child > .btn-group > .btn__default--outline,
+.input-group-btn:first-child > .btn-group > .btn__primary,
+.input-group-btn:first-child > .btn-group > .btn__info,
+.input-group-btn:first-child > .btn-group > .btn__danger,
+.input-group-btn:first-child > .btn-group > .btn__success,
+.input-group-btn:first-child > .btn-group > .btn__link,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+.input-group-btn:last-child > .btn__default:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn__default--outline:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn__primary:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn__info:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn__danger:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn__success:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn__link:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__default, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__default--outline, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__primary, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__info, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__danger, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__success, .input-group-btn:last-child > .btn-group:not(:last-child) > .btn__link {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
@@ -3553,10 +4179,31 @@ tbody.collapse.in {
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn__default,
+.input-group-btn:last-child > .btn__default--outline,
+.input-group-btn:last-child > .btn__primary,
+.input-group-btn:last-child > .btn__info,
+.input-group-btn:last-child > .btn__danger,
+.input-group-btn:last-child > .btn__success,
+.input-group-btn:last-child > .btn__link,
 .input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .btn-group > .btn__default,
+.input-group-btn:last-child > .btn-group > .btn__default--outline,
+.input-group-btn:last-child > .btn-group > .btn__primary,
+.input-group-btn:last-child > .btn-group > .btn__info,
+.input-group-btn:last-child > .btn-group > .btn__danger,
+.input-group-btn:last-child > .btn-group > .btn__success,
+.input-group-btn:last-child > .btn-group > .btn__link,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
-.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+.input-group-btn:first-child > .btn__default:not(:first-child),
+.input-group-btn:first-child > .btn__default--outline:not(:first-child),
+.input-group-btn:first-child > .btn__primary:not(:first-child),
+.input-group-btn:first-child > .btn__info:not(:first-child),
+.input-group-btn:first-child > .btn__danger:not(:first-child),
+.input-group-btn:first-child > .btn__success:not(:first-child),
+.input-group-btn:first-child > .btn__link:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__default, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__default--outline, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__primary, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__info, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__danger, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__success, .input-group-btn:first-child > .btn-group:not(:first-child) > .btn__link {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3567,18 +4214,46 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn {
+  .input-group-btn > .btn, .input-group-btn > .btn__default, .input-group-btn > .btn__default--outline, .input-group-btn > .btn__primary, .input-group-btn > .btn__info, .input-group-btn > .btn__danger, .input-group-btn > .btn__success, .input-group-btn > .btn__link {
     position: relative; }
-    .input-group-btn > .btn + .btn {
+    .input-group-btn > .btn + .btn, .input-group-btn > .btn__default + .btn, .input-group-btn > .btn__default--outline + .btn, .input-group-btn > .btn__primary + .btn, .input-group-btn > .btn__info + .btn, .input-group-btn > .btn__danger + .btn, .input-group-btn > .btn__success + .btn, .input-group-btn > .btn__link + .btn, .input-group-btn > .btn + .btn__default, .input-group-btn > .btn__default + .btn__default, .input-group-btn > .btn__default--outline + .btn__default, .input-group-btn > .btn__primary + .btn__default, .input-group-btn > .btn__info + .btn__default, .input-group-btn > .btn__danger + .btn__default, .input-group-btn > .btn__success + .btn__default, .input-group-btn > .btn__link + .btn__default, .input-group-btn > .btn + .btn__default--outline, .input-group-btn > .btn__default + .btn__default--outline, .input-group-btn > .btn__default--outline + .btn__default--outline, .input-group-btn > .btn__primary + .btn__default--outline, .input-group-btn > .btn__info + .btn__default--outline, .input-group-btn > .btn__danger + .btn__default--outline, .input-group-btn > .btn__success + .btn__default--outline, .input-group-btn > .btn__link + .btn__default--outline, .input-group-btn > .btn + .btn__primary, .input-group-btn > .btn__default + .btn__primary, .input-group-btn > .btn__default--outline + .btn__primary, .input-group-btn > .btn__primary + .btn__primary, .input-group-btn > .btn__info + .btn__primary, .input-group-btn > .btn__danger + .btn__primary, .input-group-btn > .btn__success + .btn__primary, .input-group-btn > .btn__link + .btn__primary, .input-group-btn > .btn + .btn__info, .input-group-btn > .btn__default + .btn__info, .input-group-btn > .btn__default--outline + .btn__info, .input-group-btn > .btn__primary + .btn__info, .input-group-btn > .btn__info + .btn__info, .input-group-btn > .btn__danger + .btn__info, .input-group-btn > .btn__success + .btn__info, .input-group-btn > .btn__link + .btn__info, .input-group-btn > .btn + .btn__danger, .input-group-btn > .btn__default + .btn__danger, .input-group-btn > .btn__default--outline + .btn__danger, .input-group-btn > .btn__primary + .btn__danger, .input-group-btn > .btn__info + .btn__danger, .input-group-btn > .btn__danger + .btn__danger, .input-group-btn > .btn__success + .btn__danger, .input-group-btn > .btn__link + .btn__danger, .input-group-btn > .btn + .btn__success, .input-group-btn > .btn__default + .btn__success, .input-group-btn > .btn__default--outline + .btn__success, .input-group-btn > .btn__primary + .btn__success, .input-group-btn > .btn__info + .btn__success, .input-group-btn > .btn__danger + .btn__success, .input-group-btn > .btn__success + .btn__success, .input-group-btn > .btn__link + .btn__success, .input-group-btn > .btn + .btn__link, .input-group-btn > .btn__default + .btn__link, .input-group-btn > .btn__default--outline + .btn__link, .input-group-btn > .btn__primary + .btn__link, .input-group-btn > .btn__info + .btn__link, .input-group-btn > .btn__danger + .btn__link, .input-group-btn > .btn__success + .btn__link, .input-group-btn > .btn__link + .btn__link {
       margin-left: -1px; }
     .input-group-btn > .btn:hover,
+    .input-group-btn > .btn__default:hover,
+    .input-group-btn > .btn__default--outline:hover,
+    .input-group-btn > .btn__primary:hover,
+    .input-group-btn > .btn__info:hover,
+    .input-group-btn > .btn__danger:hover,
+    .input-group-btn > .btn__success:hover,
+    .input-group-btn > .btn__link:hover,
     .input-group-btn > .btn:focus,
-    .input-group-btn > .btn:active {
+    .input-group-btn > .btn__default:focus,
+    .input-group-btn > .btn__default--outline:focus,
+    .input-group-btn > .btn__primary:focus,
+    .input-group-btn > .btn__info:focus,
+    .input-group-btn > .btn__danger:focus,
+    .input-group-btn > .btn__success:focus,
+    .input-group-btn > .btn__link:focus,
+    .input-group-btn > .btn:active, .input-group-btn > .btn__default:active, .input-group-btn > .btn__default--outline:active, .input-group-btn > .btn__primary:active, .input-group-btn > .btn__info:active, .input-group-btn > .btn__danger:active, .input-group-btn > .btn__success:active, .input-group-btn > .btn__link:active {
       z-index: 2; }
   .input-group-btn:first-child > .btn,
+  .input-group-btn:first-child > .btn__default,
+  .input-group-btn:first-child > .btn__default--outline,
+  .input-group-btn:first-child > .btn__primary,
+  .input-group-btn:first-child > .btn__info,
+  .input-group-btn:first-child > .btn__danger,
+  .input-group-btn:first-child > .btn__success,
+  .input-group-btn:first-child > .btn__link,
   .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
   .input-group-btn:last-child > .btn,
+  .input-group-btn:last-child > .btn__default,
+  .input-group-btn:last-child > .btn__default--outline,
+  .input-group-btn:last-child > .btn__primary,
+  .input-group-btn:last-child > .btn__info,
+  .input-group-btn:last-child > .btn__danger,
+  .input-group-btn:last-child > .btn__success,
+  .input-group-btn:last-child > .btn__link,
   .input-group-btn:last-child > .btn-group {
     z-index: 2;
     margin-left: -1px; }
@@ -3969,10 +4644,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 15.5px;
   margin-bottom: 15.5px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .navbar-btn.btn__default, .btn-group-sm > .navbar-btn.btn__default--outline, .btn-group-sm > .navbar-btn.btn__primary, .btn-group-sm > .navbar-btn.btn__info, .btn-group-sm > .navbar-btn.btn__danger, .btn-group-sm > .navbar-btn.btn__success, .btn-group-sm > .navbar-btn.btn__link {
     margin-top: 17.5px;
     margin-bottom: 17.5px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .navbar-btn.btn__default, .btn-group-xs > .navbar-btn.btn__default--outline, .btn-group-xs > .navbar-btn.btn__primary, .btn-group-xs > .navbar-btn.btn__info, .btn-group-xs > .navbar-btn.btn__danger, .btn-group-xs > .navbar-btn.btn__success, .btn-group-xs > .navbar-btn.btn__link {
     margin-top: 21.5px;
     margin-bottom: 21.5px; }
 
@@ -4057,15 +4732,19 @@ tbody.collapse.in {
     color: #777; }
     .navbar-default .navbar-link:hover {
       color: #333; }
-  .navbar-default .btn-link {
+  .navbar-default .btn-link, .navbar-default .btn__link {
     color: #777; }
     .navbar-default .btn-link:hover,
-    .navbar-default .btn-link:focus {
+    .navbar-default .btn__link:hover,
+    .navbar-default .btn-link:focus, .navbar-default .btn__link:focus {
       color: #333; }
     .navbar-default .btn-link[disabled]:hover,
+    .navbar-default [disabled].btn__link:hover,
     .navbar-default .btn-link[disabled]:focus,
+    .navbar-default [disabled].btn__link:focus,
     fieldset[disabled] .navbar-default .btn-link:hover,
-    fieldset[disabled] .navbar-default .btn-link:focus {
+    fieldset[disabled] .navbar-default .btn__link:hover,
+    fieldset[disabled] .navbar-default .btn-link:focus, fieldset[disabled] .navbar-default .btn__link:focus {
       color: #ccc; }
 
 .navbar-inverse {
@@ -4135,15 +4814,19 @@ tbody.collapse.in {
     color: #9d9d9d; }
     .navbar-inverse .navbar-link:hover {
       color: #fff; }
-  .navbar-inverse .btn-link {
+  .navbar-inverse .btn-link, .navbar-inverse .btn__link {
     color: #9d9d9d; }
     .navbar-inverse .btn-link:hover,
-    .navbar-inverse .btn-link:focus {
+    .navbar-inverse .btn__link:hover,
+    .navbar-inverse .btn-link:focus, .navbar-inverse .btn__link:focus {
       color: #fff; }
     .navbar-inverse .btn-link[disabled]:hover,
+    .navbar-inverse [disabled].btn__link:hover,
     .navbar-inverse .btn-link[disabled]:focus,
+    .navbar-inverse [disabled].btn__link:focus,
     fieldset[disabled] .navbar-inverse .btn-link:hover,
-    fieldset[disabled] .navbar-inverse .btn-link:focus {
+    fieldset[disabled] .navbar-inverse .btn__link:hover,
+    fieldset[disabled] .navbar-inverse .btn-link:focus, fieldset[disabled] .navbar-inverse .btn__link:focus {
       color: #444; }
 
 .breadcrumb {
@@ -4301,7 +4984,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label {
+  .btn .label, .btn__default .label, .btn__default--outline .label, .btn__primary .label, .btn__info .label, .btn__danger .label, .btn__success .label, .btn__link .label {
     position: relative;
     top: -1px; }
 
@@ -4362,12 +5045,19 @@ a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge {
+  .btn .badge, .btn__default .badge, .btn__default--outline .badge, .btn__primary .badge, .btn__info .badge, .btn__danger .badge, .btn__success .badge, .btn__link .badge {
     position: relative;
     top: -1px; }
   .btn-xs .badge,
   .btn-group-xs > .btn .badge,
-  .btn-group-xs > .btn .badge {
+  .btn-group-xs > .btn__default .badge,
+  .btn-group-xs > .btn__default--outline .badge,
+  .btn-group-xs > .btn__primary .badge,
+  .btn-group-xs > .btn__info .badge,
+  .btn-group-xs > .btn__danger .badge,
+  .btn-group-xs > .btn__success .badge,
+  .btn-group-xs > .btn__link .badge,
+  .btn-group-xs > .btn .badge, .btn-group-xs > .btn__default .badge, .btn-group-xs > .btn__default--outline .badge, .btn-group-xs > .btn__primary .badge, .btn-group-xs > .btn__info .badge, .btn-group-xs > .btn__danger .badge, .btn-group-xs > .btn__success .badge, .btn-group-xs > .btn__link .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge,
@@ -5293,10 +5983,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn {
+  .modal-footer .btn + .btn, .modal-footer .btn__default + .btn, .modal-footer .btn__default--outline + .btn, .modal-footer .btn__primary + .btn, .modal-footer .btn__info + .btn, .modal-footer .btn__danger + .btn, .modal-footer .btn__success + .btn, .modal-footer .btn__link + .btn, .modal-footer .btn + .btn__default, .modal-footer .btn__default + .btn__default, .modal-footer .btn__default--outline + .btn__default, .modal-footer .btn__primary + .btn__default, .modal-footer .btn__info + .btn__default, .modal-footer .btn__danger + .btn__default, .modal-footer .btn__success + .btn__default, .modal-footer .btn__link + .btn__default, .modal-footer .btn + .btn__default--outline, .modal-footer .btn__default + .btn__default--outline, .modal-footer .btn__default--outline + .btn__default--outline, .modal-footer .btn__primary + .btn__default--outline, .modal-footer .btn__info + .btn__default--outline, .modal-footer .btn__danger + .btn__default--outline, .modal-footer .btn__success + .btn__default--outline, .modal-footer .btn__link + .btn__default--outline, .modal-footer .btn + .btn__primary, .modal-footer .btn__default + .btn__primary, .modal-footer .btn__default--outline + .btn__primary, .modal-footer .btn__primary + .btn__primary, .modal-footer .btn__info + .btn__primary, .modal-footer .btn__danger + .btn__primary, .modal-footer .btn__success + .btn__primary, .modal-footer .btn__link + .btn__primary, .modal-footer .btn + .btn__info, .modal-footer .btn__default + .btn__info, .modal-footer .btn__default--outline + .btn__info, .modal-footer .btn__primary + .btn__info, .modal-footer .btn__info + .btn__info, .modal-footer .btn__danger + .btn__info, .modal-footer .btn__success + .btn__info, .modal-footer .btn__link + .btn__info, .modal-footer .btn + .btn__danger, .modal-footer .btn__default + .btn__danger, .modal-footer .btn__default--outline + .btn__danger, .modal-footer .btn__primary + .btn__danger, .modal-footer .btn__info + .btn__danger, .modal-footer .btn__danger + .btn__danger, .modal-footer .btn__success + .btn__danger, .modal-footer .btn__link + .btn__danger, .modal-footer .btn + .btn__success, .modal-footer .btn__default + .btn__success, .modal-footer .btn__default--outline + .btn__success, .modal-footer .btn__primary + .btn__success, .modal-footer .btn__info + .btn__success, .modal-footer .btn__danger + .btn__success, .modal-footer .btn__success + .btn__success, .modal-footer .btn__link + .btn__success, .modal-footer .btn + .btn__link, .modal-footer .btn__default + .btn__link, .modal-footer .btn__default--outline + .btn__link, .modal-footer .btn__primary + .btn__link, .modal-footer .btn__info + .btn__link, .modal-footer .btn__danger + .btn__link, .modal-footer .btn__success + .btn__link, .modal-footer .btn__link + .btn__link {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn__default + .btn, .modal-footer .btn-group .btn__default--outline + .btn, .modal-footer .btn-group .btn__primary + .btn, .modal-footer .btn-group .btn__info + .btn, .modal-footer .btn-group .btn__danger + .btn, .modal-footer .btn-group .btn__success + .btn, .modal-footer .btn-group .btn__link + .btn, .modal-footer .btn-group .btn + .btn__default, .modal-footer .btn-group .btn__default + .btn__default, .modal-footer .btn-group .btn__default--outline + .btn__default, .modal-footer .btn-group .btn__primary + .btn__default, .modal-footer .btn-group .btn__info + .btn__default, .modal-footer .btn-group .btn__danger + .btn__default, .modal-footer .btn-group .btn__success + .btn__default, .modal-footer .btn-group .btn__link + .btn__default, .modal-footer .btn-group .btn + .btn__default--outline, .modal-footer .btn-group .btn__default + .btn__default--outline, .modal-footer .btn-group .btn__default--outline + .btn__default--outline, .modal-footer .btn-group .btn__primary + .btn__default--outline, .modal-footer .btn-group .btn__info + .btn__default--outline, .modal-footer .btn-group .btn__danger + .btn__default--outline, .modal-footer .btn-group .btn__success + .btn__default--outline, .modal-footer .btn-group .btn__link + .btn__default--outline, .modal-footer .btn-group .btn + .btn__primary, .modal-footer .btn-group .btn__default + .btn__primary, .modal-footer .btn-group .btn__default--outline + .btn__primary, .modal-footer .btn-group .btn__primary + .btn__primary, .modal-footer .btn-group .btn__info + .btn__primary, .modal-footer .btn-group .btn__danger + .btn__primary, .modal-footer .btn-group .btn__success + .btn__primary, .modal-footer .btn-group .btn__link + .btn__primary, .modal-footer .btn-group .btn + .btn__info, .modal-footer .btn-group .btn__default + .btn__info, .modal-footer .btn-group .btn__default--outline + .btn__info, .modal-footer .btn-group .btn__primary + .btn__info, .modal-footer .btn-group .btn__info + .btn__info, .modal-footer .btn-group .btn__danger + .btn__info, .modal-footer .btn-group .btn__success + .btn__info, .modal-footer .btn-group .btn__link + .btn__info, .modal-footer .btn-group .btn + .btn__danger, .modal-footer .btn-group .btn__default + .btn__danger, .modal-footer .btn-group .btn__default--outline + .btn__danger, .modal-footer .btn-group .btn__primary + .btn__danger, .modal-footer .btn-group .btn__info + .btn__danger, .modal-footer .btn-group .btn__danger + .btn__danger, .modal-footer .btn-group .btn__success + .btn__danger, .modal-footer .btn-group .btn__link + .btn__danger, .modal-footer .btn-group .btn + .btn__success, .modal-footer .btn-group .btn__default + .btn__success, .modal-footer .btn-group .btn__default--outline + .btn__success, .modal-footer .btn-group .btn__primary + .btn__success, .modal-footer .btn-group .btn__info + .btn__success, .modal-footer .btn-group .btn__danger + .btn__success, .modal-footer .btn-group .btn__success + .btn__success, .modal-footer .btn-group .btn__link + .btn__success, .modal-footer .btn-group .btn + .btn__link, .modal-footer .btn-group .btn__default + .btn__link, .modal-footer .btn-group .btn__default--outline + .btn__link, .modal-footer .btn-group .btn__primary + .btn__link, .modal-footer .btn-group .btn__info + .btn__link, .modal-footer .btn-group .btn__danger + .btn__link, .modal-footer .btn-group .btn__success + .btn__link, .modal-footer .btn-group .btn__link + .btn__link {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -5329,7 +6019,7 @@ button.close {
 .clearfix:after {
   clear: both; }
 
-.center-block {
+.center-block, .lookup-form__loader__content img {
   display: block;
   margin-left: auto;
   margin-right: auto; }
@@ -7845,7 +8535,7 @@ Copyright (c) 2014 Daniel Eden
     position: relative;
     /* Box Model */
     min-height: 200px;
-    overflow: hidden;
+    overflow: scroll;
     /* Misc */
     transition: 0.2s linear all;
     /* Modifier */ }
@@ -7855,14 +8545,47 @@ Copyright (c) 2014 Daniel Eden
   .lookup-form__form {
     /* Dependencies */
     /* Positioning */
-    z-index: 30; }
+    z-index: 30;
+    /* Nesting */ }
+    .lookup-form__form input {
+      /* Typography */
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+      font-size: 19px;
+      /* Viusal */
+      background-color: rgba(0, 0, 0, 0.3);
+      border-top: 0;
+      border-right: 0;
+      border-left-color: black;
+      border-bottom-color: black;
+      /* Pseudo Classes */ }
+      .lookup-form__form input::-webkit-input-placeholder {
+        color: white; }
+      .lookup-form__form input:-moz-placeholder {
+        /* Firefox 18- */
+        color: white; }
+      .lookup-form__form input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: white; }
+      .lookup-form__form input:-ms-input-placeholder {
+        color: white; }
   .lookup-form__results {
     /* Dependencies */
     /* Positioning */
     z-index: 20;
     /* Elements */ }
     .lookup-form__results__details {
+      /* Box Model */
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 15px;
+      /* Visual */
+      background-color: white;
       /* Nesting */ }
+      .lookup-form__results__details h4 {
+        /* Box Model */
+        padding-top: 15px;
+        padding-left: 15px; }
       .lookup-form__results__details li {
         /* Nesting */ }
         .lookup-form__results__details li span {
@@ -7880,12 +8603,83 @@ Copyright (c) 2014 Daniel Eden
   .lookup-form__loader {
     /* Dependencies */
     /* Positioning */
-    z-index: 10; }
+    z-index: 10;
+    /* Elements */ }
+    .lookup-form__loader__content {
+      /* Dependencies */
+      /* Box Model */
+      padding: 15px;
+      /* Typoraphy */
+      text-align: center;
+      /* Visual */
+      background-color: white;
+      border-radius: 10px;
+      /* Nesting */ }
+      .lookup-form__loader__content img {
+        /* Dependencies */ }
 
 .vehicle-table {
   /* Elements */ }
   .vehicle-table__icon {
     /* Box Model */
     max-height: 20px; }
+
+.modal-dialog {
+  /* Background */
+  background-image: url("/img/modal-background.jpg");
+  background-size: cover; }
+
+.modal-content {
+  /* Visual */
+  background-color: transparent; }
+
+.modal-header {
+  /* Typography */
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  /* Visual */
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.modal-footer {
+  /* Box Model */
+  padding-top: 0;
+  /* Visual */
+  border: none; }
+
+.modal-body {
+  /* Box Model */
+  padding-top: 50px;
+  padding-bottom: 0; }
+
+.btn, .btn__default, .btn__default--outline, .btn__primary, .btn__info, .btn__danger, .btn__success, .btn__link {
+  /* Misc */
+  transition: all 0.2s linear;
+  /* Elements */ }
+  .btn__default, .btn__default--outline {
+    /* Dependencies */ }
+    .btn__default--outline {
+      /* Dependencies */
+      /* Typography */
+      color: white;
+      /* Visual */
+      background-color: rgba(0, 0, 0, 0.3);
+      /* Psuedo Classes */ }
+      .btn__default--outline:hover {
+        /* Typography */
+        color: white;
+        /* Visual */
+        background-color: rgba(0, 0, 0, 0.5); }
+  .btn__primary {
+    /* Dependencies */ }
+  .btn__info {
+    /* Dependencies */ }
+  .btn__danger {
+    /* Dependencies */ }
+  .btn__success {
+    /* Dependencies */ }
+  .btn__link {
+    /* Dependencies */ }
 
 /*# sourceMappingURL=app.css.map */
