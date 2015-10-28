@@ -20,10 +20,11 @@ class VehicleLookupController extends Controller
      * [__construct description]
      * @param [type] $repository [description]
      */
-    public function __construct(VehicleLookup $model)
+    public function __construct(VehicleLookup $model, Vehicle $vehicle)
     {
         $this->repository = app('App\Http\Interfaces\VehicleLookupInterface');
         $this->model = $model;
+        $this->vehicleModel = $vehicle;
         $this->vehicleRepository = app('App\Http\Interfaces\VehicleInterface');
     }
 
@@ -103,5 +104,31 @@ class VehicleLookupController extends Controller
         $vehicle->icon = $this->vehicleRepository->getIcon($vehicle);
 
         return view::make('partials.vehicleTable')->with('vehicle', $vehicle);
+    }
+
+    /**
+     * Delete a lookup
+     *
+     * @param $id:int
+     * @return
+     */
+    public function deleteLookup($id)
+    {
+        // Get the modal the delete was created on
+        $lookupToDelete = $this->model->find($id);
+
+        // Use that to find all other lookups with the same vehicle
+        $lookups = $this->model->where('vehicle_id', $lookupToDelete->vehicle_id);
+
+        // delete lookups
+        foreach ($lookups as $lookup) {
+            $lookup->delete();
+        }
+
+        // delete vehicle
+        $vehicle = $this->vehicleModel->find($lookupToDelete->vehicle_id);
+        $vehicle->delete();
+
+        return;
     }
 }

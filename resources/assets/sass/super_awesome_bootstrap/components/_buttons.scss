@@ -1,4 +1,6 @@
 .btn {
+  /* Misc */
+  transition: all 0.2s linear;
 
   /* Elements */
   @include element(default) {
@@ -6,6 +8,27 @@
     /* Dependencies */
     @extend .btn;
     @extend .btn-default;
+
+    @include modifier(outline) {
+      /* Dependencies */
+      @extend .btn__default;
+
+      /* Typography */
+      color: white;
+
+      /* Visual */
+      background-color: rgba(0, 0, 0, 0.3);
+
+      /* Psuedo Classes */
+      &:hover {
+
+        /* Typography */
+        color: white;
+
+        /* Visual */
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
   }
 
   @include element(primary) {

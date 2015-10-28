@@ -29300,9 +29300,10 @@ $('#postNewLookup').submit(function (e) {
     $($lookupFormResults).html(data);
 
     // Make modal bigger to show results if no errors
-    if ($($formWrapper).children('.alert-danger').length) {
-      $($formWrapper).addClass('lookup-form__wrapper--results');
-    }
+    //if($($formWrapper).children('.alert-danger').length) {
+    //    $($formWrapper).addClass('lookup-form__wrapper--results');
+    //}
+    $($formWrapper).addClass('lookup-form__wrapper--results');
 
     // Zoom out loader and in results
     $($lookFormLoader).toggleClass('zoomIn zoomOut');
@@ -29325,6 +29326,9 @@ $($modal).on('show.bs.modal', function (event) {
   // Get details for lookup id
   $.get(url, function (data) {
     $($modal).find('.modal-body').html(data);
+
+    // Set the data-id attr on the delete button
+    $('#delete-lookup').attr('data-id', lookUpId);
   });
 });
 
@@ -29375,6 +29379,22 @@ $('#lookup-modal').on('hidden.bs.modal', function (e) {
 
   // Todo refresh the vechile table with ajax instead of just refreshing the page
   location.reload();
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Delete a lookup
+ |--------------------------------------------------------------------------
+ |
+ */
+$('#delete-lookup').click(function (e) {
+  e.preventDefault();
+  var id = $(this).attr('data-id');
+  var url = 'lookup/deleteLookup/' + id;
+
+  $.get(url, function () {
+    location.reload();
+  });
 });
 
 },{"./spark/components":98,"laravel-spark":96,"laravel-spark/core/dependencies":7}],98:[function(require,module,exports){
