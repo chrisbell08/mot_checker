@@ -5,11 +5,9 @@
  * Runs the phantom.js headless server to crawl web pages
  */
 // Globals
-var homeUrl = 'http://ec2-52-17-183-118.eu-west-1.compute.amazonaws.com';
-//var homeUrl = 'http://motchecker:8888';
-var apiUrl = homeUrl + '/api/v1/casperPost';
 var lookupId;
 var errors = false;
+var postbackUrl;
 
 // Create new instance of Casper
 var casper = require('casper').create();
@@ -21,6 +19,8 @@ casper.start('https://www.vehicleenquiry.service.gov.uk/', function() {
     var reg = casper.cli.args[0];
     var make = casper.cli.args[1];
     lookupId = casper.cli.args[2];
+    postbackUrl = casper.cli.args[3];
+
 
     var formData = {
         "ctl00$MainContent$txtSearchVrm": reg,
@@ -84,7 +84,7 @@ casper.then(function() {
     }
 
     if(!errors) {
-        casper.open(apiUrl, {
+        casper.open(postbackUrl, {
             method: 'POST',
             data: {
                 'mot': mot,

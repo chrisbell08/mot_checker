@@ -66,15 +66,17 @@ class VehicleLookupRepository extends Repository implements VehicleLookupInterfa
      */
     public function casper($make, $reg, $lookupId)
     {
+        $apiUrl = '/api/v1/casperPost';
+
         // Customize the commands based on environment
         if (getenv('APP_ENV') === 'local') {
             putenv('PATH=' . getenv('PATH') . ':/usr/local/bin');
             putenv("PHANTOMJS_EXECUTABLE=/usr/local/bin/phantomjs");
             putenv("DYLD_LIBRARY_PATH");
-            $command = "casperjs ../casper.js " . $reg . " " . $make . " " . $lookupId . " 2>&1";
+            $command = "casperjs ../casper.js " . $reg . " " . $make . " " . $lookupId . " http://motchecker:8888" . $apiUrl . " 2>&1";
         } else {
             putenv("PHANTOMJS_EXECUTABLE=" . base_path() . "node_modules/phantomjs");
-            $command = "sudo casperjs ../casper.js " . $reg . " " . $make . " " . $lookupId . " 2>&1";
+            $command = "sudo casperjs ../casper.js " . $reg . " " . $make . " " . $lookupId . " http://ec2-52-17-183-118.eu-west-1.compute.amazonaws.com" . $apiUrl . " 2>&1";
         }
 
         // Run casperjs
