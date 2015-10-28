@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
@@ -24,7 +23,7 @@ class ApiController extends BaseController
      */
     public function __construct()
     {
-        $this->vehicleLookupRepository = app('App\Http\Interfaces\VehicleLookupInterface');;
+        $this->vehicleLookupRepository = app('App\Http\Interfaces\VehicleLookupInterface');
     }
 
     /**
