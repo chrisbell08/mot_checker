@@ -31,6 +31,7 @@ Route::group(['prefix' => 'lookup/'], function()
 	Route::post('postNewLookup', ['as' => 'lookup.postNewLookup', 'uses' => 'VehicleLookupController@postNewLookup']);
 	Route::get('getVehicleDetails/{id}', ['as' => 'lookup.getVehicleDetails', 'uses' => 'VehicleLookupController@getVehicleDetails']);
 	Route::get('refreshLookup/{id}', ['as' => 'lookup.refresh', 'uses' => 'VehicleLookupController@refreshLookup']);
+	Route::get('deleteLookup/{id}', ['as' => 'lookup.delete', 'uses' => 'VehicleLookupController@deleteLookup']);
 });
 
 
